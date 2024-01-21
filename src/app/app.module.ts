@@ -12,13 +12,10 @@ import { SearchbarComponent } from './common/widgets/searchbar/searchbar.compone
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    SearchbarComponent
+    SearchbarComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
