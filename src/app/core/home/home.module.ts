@@ -10,6 +10,9 @@ import { LastNewsComponent } from './last-news/last-news.component';
 import { TopLeaguesComponent } from './top-leagues/top-leagues.component';
 import { AllLeaguesComponent } from './all-leagues/all-leagues.component';
 import { LeagueItemComponent } from './league-item/league-item.component';
+import { HomeFilterComponent } from './home-filter/home-filter.component';
+import { FeedFilterCapsuleComponent } from './feed-filter-capsule/feed-filter-capsule.component';
+import { FeedFilterSearchComponent } from './feed-filter-search/feed-filter-search.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { LeagueItemComponent } from './league-item/league-item.component';
     LastNewsComponent,
     TopLeaguesComponent,
     AllLeaguesComponent,
-    LeagueItemComponent
+    LeagueItemComponent,
+    HomeFilterComponent,
+    FeedFilterCapsuleComponent,
+    FeedFilterSearchComponent
   ],
   imports: [
     CommonModule,

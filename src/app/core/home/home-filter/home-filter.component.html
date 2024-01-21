@@ -1,0 +1,27 @@
+<app-wrapper class="home-filter">
+  <div class="dates-filter">
+    <div class="arrow">
+      <i class="fas fa-chevron-left"></i>
+    </div>
+    <div class="date-picker">
+      <div class="date-picker__date">
+        <span class="date-picker__date__day">Today</span>
+      </div>
+      <div class="date-picker__calendar">
+        <i class="far fa-calendar-alt"></i>
+      </div>
+    </div>
+    <div class="arrow">
+      <i class="fas fa-chevron-right"></i>
+    </div>
+  </div>
+  <div class="hseparator"></div>
+  <div class="filters">
+    <app-feed-filter-capsule
+      class="filter-capsule"
+      *ngFor="let filter of filters"
+      [content]="filter"
+    ></app-feed-filter-capsule>
+    <app-feed-filter-search class="w-100"></app-feed-filter-search>
+  </div>
+</app-wrapper>
