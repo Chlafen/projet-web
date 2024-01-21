@@ -13,6 +13,7 @@ import { LeagueItemComponent } from './league-item/league-item.component';
 import { HomeFilterComponent } from './home-filter/home-filter.component';
 import { FeedFilterCapsuleComponent } from './feed-filter-capsule/feed-filter-capsule.component';
 import { FeedFilterSearchComponent } from './feed-filter-search/feed-filter-search.component';
+import { FeedLeagueSectionComponent } from './feed-league-section/feed-league-section.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { FeedFilterSearchComponent } from './feed-filter-search/feed-filter-sear
     LeagueItemComponent,
     HomeFilterComponent,
     FeedFilterCapsuleComponent,
-    FeedFilterSearchComponent
+    FeedFilterSearchComponent,
+    FeedLeagueSectionComponent
   ],
   imports: [
     CommonModule,
