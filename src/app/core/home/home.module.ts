@@ -9,6 +9,7 @@ import { TopTransfersComponent } from './top-transfers/top-transfers.component';
 import { LastNewsComponent } from './last-news/last-news.component';
 import { TopLeaguesComponent } from './top-leagues/top-leagues.component';
 import { AllLeaguesComponent } from './all-leagues/all-leagues.component';
+import { LeagueItemComponent } from './league-item/league-item.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { AllLeaguesComponent } from './all-leagues/all-leagues.component';
     TopTransfersComponent,
     LastNewsComponent,
     TopLeaguesComponent,
-    AllLeaguesComponent
+    AllLeaguesComponent,
+    LeagueItemComponent
   ],
   imports: [
     CommonModule,
