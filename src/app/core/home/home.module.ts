@@ -14,6 +14,7 @@ import { HomeFilterComponent } from './home-filter/home-filter.component';
 import { FeedFilterCapsuleComponent } from './feed-filter-capsule/feed-filter-capsule.component';
 import { FeedFilterSearchComponent } from './feed-filter-search/feed-filter-search.component';
 import { FeedLeagueSectionComponent } from './feed-league-section/feed-league-section.component';
+import { LeaguePerCountryListComponent } from './league-per-country-list/league-per-country-list.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { FeedLeagueSectionComponent } from './feed-league-section/feed-league-se
     TopLeaguesComponent,
     AllLeaguesComponent,
     LeagueItemComponent,
+    LeaguePerCountryListComponent,
     HomeFilterComponent,
     FeedFilterCapsuleComponent,
     FeedFilterSearchComponent,
