@@ -16,6 +16,7 @@ import { FeedFilterSearchComponent } from './feed-filter-search/feed-filter-sear
 import { FeedLeagueSectionComponent } from './feed-league-section/feed-league-section.component';
 import { LeaguePerCountryListComponent } from './league-per-country-list/league-per-country-list.component';
 import { MatchListItemComponent } from './match-list-item/match-list-item.component';
+import { HomeNewsCardComponent } from './home-news-card/home-news-card.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { MatchListItemComponent } from './match-list-item/match-list-item.compon
     FeedFilterCapsuleComponent,
     FeedFilterSearchComponent,
     FeedLeagueSectionComponent,
-    MatchListItemComponent
+    MatchListItemComponent,
+    HomeNewsCardComponent
   ],
   imports: [
     CommonModule,

@@ -1,3 +1,11 @@
 <app-wrapper>
-  <p>last-news works!</p>
+  <div class="last-news-container">
+    <b class="mb-3"> News </b>
+    <ng-container *ngFor="let myNew of news; let i = index">
+      <app-home-news-card [myNew]="myNew" [vertical]="i === 0">
+      </app-home-news-card>
+      <div class="hsep"></div>
+    </ng-container>
+    <a class="all-news" href="#">All News</a>
+  </div>
 </app-wrapper>
