@@ -8,7 +8,7 @@ export const DisplayLeaguesAnimation = trigger(
       [
         style({ height: 0, opacity: 0, overflow: 'hidden' }),
         animate(
-          '1s ease-in-out',
+          '100ms ease-in-out',
           style({ height: "*", opacity: 1, overflow: 'visible' }),
         ),
       ]
@@ -18,7 +18,7 @@ export const DisplayLeaguesAnimation = trigger(
       [
         style({ height: "*", opacity: 1, overflow: 'visible' }),
         animate(
-          '1s ease-in-out',
+          '100ms ease-in-out',
           style({ height: 0, opacity: 0, overflow: 'hidden' }),
         ),
       ]
