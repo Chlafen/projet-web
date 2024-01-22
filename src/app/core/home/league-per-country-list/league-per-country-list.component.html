@@ -1,0 +1,18 @@
+<div class="country-item" (click)="onItemClick()">
+  <img class="country-logo" [src]="country.logo" alt="country logo" />
+  <div class="country-name-container">
+    <p class="country-name">{{ country.name }}</p>
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+      <path fill="none" d="M15 0H0v15h15z"></path>
+      <path [attr.transform]="isOpen ? 'rotate(180 3.5 3)' : null" [attr.fill]="isOpen ? 'white' : 'gray'"
+        d="M.3 1.71L2.886 4.3a1 1 0 0 0 1.41 0l2.59-2.59A1 1 0 0 0 6.176 0H1a1 1 0 0 0-.7 1.71z">
+      </path>
+    </svg>
+  </div>
+</div>
+
+<div [@inOutAnimation] *ngIf="isOpen">
+  <ng-container *ngFor="let league of country.leagues">
+    <app-league-item class="w-100" [league]="league"></app-league-item>
+  </ng-container>
+</div>
