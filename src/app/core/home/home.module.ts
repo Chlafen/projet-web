@@ -15,6 +15,7 @@ import { FeedFilterCapsuleComponent } from './feed-filter-capsule/feed-filter-ca
 import { FeedFilterSearchComponent } from './feed-filter-search/feed-filter-search.component';
 import { FeedLeagueSectionComponent } from './feed-league-section/feed-league-section.component';
 import { LeaguePerCountryListComponent } from './league-per-country-list/league-per-country-list.component';
+import { MatchListItemComponent } from './match-list-item/match-list-item.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { LeaguePerCountryListComponent } from './league-per-country-list/league-
     HomeFilterComponent,
     FeedFilterCapsuleComponent,
     FeedFilterSearchComponent,
-    FeedLeagueSectionComponent
+    FeedLeagueSectionComponent,
+    MatchListItemComponent
   ],
   imports: [
     CommonModule,
