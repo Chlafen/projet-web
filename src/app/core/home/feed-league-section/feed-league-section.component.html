@@ -1,3 +1,10 @@
-<app-wrapper>
-  <p>feed-league-section works!</p>
+<app-wrapper [padding]="0">
+  <div class="league-section-title">
+    <img class="league-logo" [src]="league.logo" alt="league logo" />
+    <span *ngIf="league.country !== null"> {{ league.country }} - </span>
+    <span>{{ league.name }}</span>
+  </div>
+  <ng-container *ngFor="let match of league.matches">
+    <app-match-list-item class="w-100" [match]="match"> </app-match-list-item>
+  </ng-container>
 </app-wrapper>
