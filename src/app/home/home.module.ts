@@ -17,6 +17,7 @@ import { LeaguePerCountryListComponent } from './views/league-per-country-list/l
 import { MatchListItemComponent } from './views/match-list-item/match-list-item.component';
 import { HomeNewsCardComponent } from './views/home-news-card/home-news-card.component';
 import { SharedModule } from '../shared/shared.module';
+import { TransferCardComponent } from './views/transfer-card/transfer-card.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { SharedModule } from '../shared/shared.module';
     FeedLeagueSectionComponent,
     MatchListItemComponent,
     HomeNewsCardComponent,
+    TransferCardComponent,
   ],
   imports: [CommonModule, HomeRoutingModule, SharedModule],
 })
