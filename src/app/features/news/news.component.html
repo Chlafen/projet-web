@@ -1,0 +1,13 @@
+<div class="news-page w-100 m-auto">
+  <app-wrapper class="w-100">
+    <div class="content">
+      <h3>World News</h3>
+      <div class="news-list">
+        <app-news-card
+          *ngFor="let news of newsList"
+          [news]="news"
+        ></app-news-card>
+      </div>
+    </div>
+  </app-wrapper>
+</div>
