@@ -1,3 +1,26 @@
 <app-wrapper>
-  <p>top-transfers works!</p>
+  <div class="top-transfers w-100">
+    <div class="header w-100">
+      <div class="header__text">
+        <p>Top transfers</p>
+        <p class="bydate">By date</p>
+      </div>
+      <div class="header__icon">
+        <app-transfer-icon></app-transfer-icon>
+      </div>
+    </div>
+    <div class="hsep"></div>
+
+    <!-- player transfers... -->
+    <ng-container *ngFor="let transfer of transfers.slice(0, 3)">
+      <app-transfer-card
+        class="w-100"
+        [transferInfo]="transfer"
+      ></app-transfer-card>
+      <div class="hsep"></div>
+    </ng-container>
+    <div class="footer">
+      <a href="#">Transfer center</a>
+    </div>
+  </div>
 </app-wrapper>
