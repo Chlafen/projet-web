@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { WrapperComponent } from './views/wrapper/wrapper.component';
 import { FeedComponent } from './views/feed/feed.component';
 import { TopTransfersComponent } from './views/top-transfers/top-transfers.component';
 import { LastNewsComponent } from './views/last-news/last-news.component';
@@ -17,11 +16,11 @@ import { FeedLeagueSectionComponent } from './views/feed-league-section/feed-lea
 import { LeaguePerCountryListComponent } from './views/league-per-country-list/league-per-country-list.component';
 import { MatchListItemComponent } from './views/match-list-item/match-list-item.component';
 import { HomeNewsCardComponent } from './views/home-news-card/home-news-card.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    WrapperComponent,
     FeedComponent,
     TopTransfersComponent,
     LastNewsComponent,
@@ -36,6 +35,6 @@ import { HomeNewsCardComponent } from './views/home-news-card/home-news-card.com
     MatchListItemComponent,
     HomeNewsCardComponent,
   ],
-  imports: [CommonModule, HomeRoutingModule],
+  imports: [CommonModule, HomeRoutingModule, SharedModule],
 })
 export class HomeModule {}
