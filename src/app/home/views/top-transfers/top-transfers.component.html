@@ -12,7 +12,7 @@
     <div class="hsep"></div>
 
     <!-- player transfers... -->
-    <ng-container *ngFor="let transfer of transfers">
+    <ng-container *ngFor="let transfer of transfers.slice(0, 3)">
       <app-transfer-card
         class="w-100"
         [transferInfo]="transfer"
