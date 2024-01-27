@@ -2,11 +2,19 @@
   <app-wrapper class="w-100">
     <div class="content">
       <h3>World News</h3>
+      <!-- if width is less than 1200, display a header -->
+      <app-news-card-large
+        class="w-100"
+        *ngIf="windowWidth > 985"
+        [news]="newsList[0]"
+      ></app-news-card-large>
       <div class="news-list">
-        <app-news-card
-          *ngFor="let news of newsList"
-          [news]="news"
-        ></app-news-card>
+        <ng-container *ngFor="let news of newsList; let i = index">
+          <app-news-card
+            *ngIf="(i == 0 && windowWidth <= 985) || i > 0"
+            [news]="news"
+          ></app-news-card>
+        </ng-container>
       </div>
     </div>
   </app-wrapper>

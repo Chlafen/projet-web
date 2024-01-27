@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { WorldNews } from 'src/app/common/types/world-news';
 
 @Component({
@@ -7,6 +7,12 @@ import { WorldNews } from 'src/app/common/types/world-news';
   styleUrls: ['./news.component.sass'],
 })
 export class NewsComponent {
+  windowWidth: number = window.innerWidth;
+  i: any;
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.windowWidth = window.innerWidth;
+  }
   newsList: WorldNews[] = [
     {
       imageUrl:
