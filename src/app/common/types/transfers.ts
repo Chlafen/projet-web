@@ -37,3 +37,13 @@ export interface TransferType {
   text: string;
   localizationKey: string;
 }
+
+export interface TransfersFilter {
+  selected: string;
+  choices: Choice[];
+}
+
+export interface Choice {
+  label: string;
+  value: string;
+}

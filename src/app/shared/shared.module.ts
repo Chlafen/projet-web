@@ -4,9 +4,10 @@ import { WrapperComponent } from './views/wrapper/wrapper.component';
 import { SearchbarComponent } from './views/searchbar/searchbar.component';
 import { TransferIconComponent } from './views/transfer-icon/transfer-icon.component';
 import { ArrowRightSolidComponent } from './views/arrow-right-solid/arrow-right-solid.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   declarations: [
     WrapperComponent,
     SearchbarComponent,
@@ -14,6 +15,7 @@ import { ArrowRightSolidComponent } from './views/arrow-right-solid/arrow-right-
     ArrowRightSolidComponent,
   ],
   exports: [
+    FormsModule,
     WrapperComponent,
     SearchbarComponent,
     TransferIconComponent,

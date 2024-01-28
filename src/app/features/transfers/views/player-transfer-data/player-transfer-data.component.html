@@ -1,0 +1,19 @@
+<div class="player-row">
+  <a class="player-image" [routerLink]="['/player', playerId]">
+    <img [src]="playerImage" />
+  </a>
+  <div class="content">
+    <div class="player-name">
+      <a [routerLink]="['/player', playerId]">{{ player.name }}</a>
+    </div>
+    <div class="player-club">
+      <app-arrow-right-solid></app-arrow-right-solid>
+      <a [routerLink]="['/club', toClubId]" class="to-club">
+        <div class="club-image">
+          <img [src]="toClubImage" [alt]="toClub" />
+        </div>
+        {{ toClub }}
+      </a>
+    </div>
+  </div>
+</div>

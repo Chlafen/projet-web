@@ -12,6 +12,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./features/news/news.module').then((m) => m.NewsModule),
   },
+  {
+    path: 'transfers',
+    loadChildren: () =>
+      import('./features/transfers/transfers.module').then(
+        (m) => m.TransfersModule
+      ),
+  },
 ];
 
 @NgModule({
