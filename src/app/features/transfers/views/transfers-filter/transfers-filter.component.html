@@ -1,0 +1,11 @@
+<select
+  [ngModel]="selectedChoice"
+  [value]="selectedChoice"
+  (ngModelChange)="onSelectedChange($event)"
+  [name]="name"
+  class="transfers-filter"
+>
+  <option *ngFor="let choice of choices" [value]="choice.value">
+    {{ choice.label }}
+  </option>
+</select>

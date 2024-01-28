@@ -1,0 +1,40 @@
+<table class="transfer-table w-100">
+  <tr [style.paddingTop]="0">
+    <th class="player-col">Player</th>
+    <th>Fee</th>
+    <th>From</th>
+    <th>Position</th>
+    <th>Contract</th>
+    <th>Market value</th>
+    <th>Date</th>
+  </tr>
+  <tr *ngFor="let transfer of transfers">
+    <td class="player-col">
+      <app-player-transfer-data
+        [playerId]="transfer.playerId!"
+        [toClub]="transfer.toClub!"
+        [toClubId]="transfer.toClubId!"
+      ></app-player-transfer-data>
+    </td>
+    <td>{{ getFee(transfer) }}</td>
+    <td>
+      <a [routerLink]="['/club', transfer.fromClubId]" class="to-club">
+        <div class="club-image">
+          <img [src]="getFromClubImg()" [alt]="transfer.fromClub" />
+        </div>
+        {{ transfer.fromClub }}
+      </a>
+    </td>
+    <td>
+      <span *ngIf="transfer.position" class="position">
+        {{ transfer.position.key | uppercase }}
+      </span>
+    </td>
+    <td>
+      {{ (transfer.fromDate | date : "MMM y") ?? "Undisclosed" }} -
+      {{ (transfer.toDate | date : "MMM y") ?? "Undisclosed" }}
+    </td>
+    <td>{{ transfer.marketValue ?? "Undisclosed" }}</td>
+    <td>{{ (transfer.transferDate | date : "d MMM y") ?? "Undisclosed" }}</td>
+  </tr>
+</table>
