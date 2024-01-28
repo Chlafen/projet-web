@@ -8,3 +8,149 @@
   padding: 1rem 0
   width: 100%
   max-width: $max-width
+
+.PosterCSS
+    overflow: auto hidden
+    display: flex
+    -webkit-box-pack: justify
+    justify-content: space-between
+    -webkit-box-align: center
+    align-items: center
+    height: 112px
+    padding: 16px 32px 8px
+
+
+body *
+    font-family: GTWalsheim-Rg,GTWalsheim-Md,Rubik,system,Arial,sans-serif
+    font-weight: normal
+    font-feature-settings: "ss01"
+    box-sizing: border-box
+    color: var(--GlobalColorScheme-Text-textDefault)
+
+
+.IconAndName
+    display: flex
+    gap: 16px
+    -webkit-box-align: center
+    align-items: center
+    -webkit-box-pack: center
+    justify-content: center
+
+.LeagueIconContainer
+    width: 42px
+    height: 42px
+
+.FifaRanking
+    display: flex
+    flex-direction: column
+    gap: 2px
+
+.TeamOrLeagueName
+    font-family: GTWalsheim-Md
+    font-size: 19px
+
+.CountrySpan
+    color: var(--GlobalColorScheme-Text-secondaryText2)
+    font-size: 14px
+
+.SeasonsDropdownWrapper select
+    display: flex
+    -webkit-box-align: center
+    align-items: center
+    -webkit-box-pack: center
+    justify-content: center
+    padding: 0px 32px 0px 16px
+    border-radius: 20px
+    height: 40px
+    background-color: var(--TLHeader-buttonBackground)
+    background-position-x: calc(100% - 16px)
+    color: var(--TLHeader-buttonColor)
+    font-size: 14px
+    background-image: url(/_next/static/media/ic_chevron_down.ca50a5d1.svg)
+    margin-left:800px
+
+
+.applyMediumHover option
+    color: black
+    background-color: var(--GlobalColorScheme-Background-cardSecondary)
+
+
+.SeasonsDropdownWrapper select
+    display: flex
+    -webkit-box-align: center
+    align-items: center
+    -webkit-box-pack: center
+    justify-content: center
+    padding: 0px 32px 0px 16px
+    border-radius: 20px
+    height: 40px
+    background-color: var(--TLHeader-buttonBackground)
+    background-position-x: calc(100% - 16px)
+    color: var(--TLHeader-buttonColor)
+    font-size: 14px
+    background-image: url(/_next/static/media/ic_chevron_down.ca50a5d1.svg)
+
+
+.NavContainerCSS
+    gap: 40px
+    padding: 0px 32px
+    margin-left:80px
+
+.NavLinkCSS-applyMediumHover-TabIndicator
+    font-family: GTWalsheim-Md
+    text-align: center
+    text-transform: capitalize
+    white-space: nowrap
+    position: relative
+    display: flex
+    -webkit-box-align: center
+    align-items: center
+    width: auto
+    height: 64px
+    color: var(--Nav-textLightGrey)
+    font-size : 16px
+
+.NavLinkCSS-applyMediumHover-TabIndicator::after
+    content: ""
+    position: absolute
+    bottom: 0px
+    left: 0px
+    width: 100%
+    height: 3px
+    background-color: transparent
+    border-radius: 3px 3px 0px 0px
+
+.NavContainerCSS
+    display: flex
+    -webkit-box-align: center
+    align-items: center
+    overflow-x: auto
+    gap: 16px
+    padding: 0px 8px
+
+a, button
+    -webkit-text-decoration: none
+    text-decoration: none
+    color: var(--GlobalColorScheme-Text-textDefault)
+    outline: none
+    border: 0
+    background: 0
+    cursor: pointer
+    padding: 0
+
+select:not(:-internal-list-box)
+    overflow: visible !important
+
+body *
+    font-family: GTWalsheim-Rg,GTWalsheim-Md,Rubik,system,Arial,sans-serif
+    font-weight: normal
+    font-feature-settings: "ss01"
+    box-sizing: border-box
+    color: var(--GlobalColorScheme-Text-textDefault)
+
+option
+    font-weight: normal
+    display: block
+    min-height: 1.2em
+    padding: 0px 2px 1px
+    white-space: nowrap
