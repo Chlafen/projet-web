@@ -1,0 +1,44 @@
+.news-page
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  padding: 1rem 0
+  width: 100%
+
+  h3
+    font-weight: 700
+
+  .content
+    gap: 1rem
+    padding: 1rem
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: start
+    justify-content: center
+
+  .news-list
+    width: 100%
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: center
+    gap: 1rem
+    flex-wrap: wrap
+
+  .news-card, .news-card-large
+    width: calc(50% - 1rem)
+
+    img
+      max-width: 100%
+      height: auto
+      border-radius: 5px
+
+    h4
+      margin: 0.5rem 0
+      font-size: 1.1rem
+
+    p
+      margin: 0.5rem 0
+      font-size: 0.9rem

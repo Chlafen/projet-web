@@ -1,4 +1,5 @@
 export interface Transfers {
+  data: any;
   transfers: Transfer[];
   hits: number;
 }

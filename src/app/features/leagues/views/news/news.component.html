@@ -1,1 +1,23 @@
-<p>news works!</p>
+<div class="news-page w-100 m-auto">
+  <div class="content">
+    <h3>World News</h3>
+    <!-- if width is less than 1200, display a header -->
+    <div *ngIf="windowWidth > 985" class="w-100">
+      <div class="news-card-large">
+        <img [src]="newsList[0].imageUrl" alt="{{ newsList[0].title }}" />
+        <h4>{{ newsList[0].title }}</h4>
+        <p>{{ newsList[0].lead }}</p>
+      </div>
+    </div>
+    <div class="news-list">
+      <ng-container *ngFor="let news of newsList; let i = index">
+        <div *ngIf="(i == 0 && windowWidth <= 985) || i > 0" class="news-card">
+          <img [src]="news.imageUrl" alt="{{ news.title }}" />
+          <h4>{{ news.title }}</h4>
+          <p>{{ news.lead }}</p>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
