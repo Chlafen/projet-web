@@ -14,14 +14,10 @@ export class TransfersFilterComponent implements OnInit {
 
   selectedChoice!: string;
   ngOnInit(): void {
-    console.log('selected', this.selected);
-
     this.selectedChoice = this.selected;
   }
 
   onSelectedChange(choice: any): void {
-    console.log('choice', choice);
-
     this.selectedChange.emit(choice);
   }
 }

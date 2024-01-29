@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { WorldNews } from 'src/app/common/types/world-news';
 
 @Component({
   selector: 'app-home-news-card',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./home-news-card.component.sass'],
 })
 export class HomeNewsCardComponent implements OnInit {
-  @Input() myNew: any;
+  @Input() myNew!: WorldNews;
   @Input() vertical: boolean = false;
 
   style: any = {

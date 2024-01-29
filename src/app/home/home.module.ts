@@ -18,6 +18,8 @@ import { MatchListItemComponent } from './views/match-list-item/match-list-item.
 import { HomeNewsCardComponent } from './views/home-news-card/home-news-card.component';
 import { SharedModule } from '../shared/shared.module';
 import { TransferCardComponent } from './views/transfer-card/transfer-card.component';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [

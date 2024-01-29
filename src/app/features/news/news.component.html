@@ -2,20 +2,26 @@
   <app-wrapper class="w-100">
     <div class="content">
       <h3>World News</h3>
-      <!-- if width is less than 1200, display a header -->
-      <app-news-card-large
-        class="w-100"
-        *ngIf="windowWidth > 985"
-        [news]="newsList[0]"
-      ></app-news-card-large>
-      <div class="news-list">
-        <ng-container *ngFor="let news of newsList; let i = index">
-          <app-news-card
-            *ngIf="(i == 0 && windowWidth <= 985) || i > 0"
-            [news]="news"
-          ></app-news-card>
-        </ng-container>
-      </div>
+      <ng-container *ngIf="(newsStatus$ | async) == 'Loading'">
+        <app-loading class="w-100"> </app-loading>
+      </ng-container>
+
+      <ng-container
+        *ngIf="(newsStatus$ | async) == 'Success' && windowWidth > 985"
+      >
+        <app-news-card-large
+          class="w-100"
+          [news]="(newsList$ | async)?.[0]??{}"
+        ></app-news-card-large>
+        <div class="news-list">
+          <ng-container *ngFor="let news of newsList$ | async; let i = index">
+            <app-news-card-large
+              *ngIf="(i == 0 && windowWidth <= 985) || i > 0"
+              [news]="news"
+            ></app-news-card-large>
+          </ng-container>
+        </div>
+      </ng-container>
     </div>
   </app-wrapper>
 </div>
