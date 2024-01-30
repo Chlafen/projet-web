@@ -1,19 +1,9 @@
 <div class="transfers-page w-100 m-auto">
   <app-wrapper class="w-100">
-    <div class="hsep"></div>
-    <div class="filters">
-      <app-transfers-filter
-      [choices]="filter1.choices"
-      [selected]="filter1.selected"
-      (selectedChange)="onFilter1Change($event)"
-    ></app-transfers-filter>
-    <app-transfers-filter
-      [choices]="filter2.choices"
-      [selected]="filter2.selected"
-      (selectedChange)="onFilter2Change($event)"
-    ></app-transfers-filter>
-  </div>
-    <div class="hsep"></div>
+    <app-transfers-table
+      class="w-100"
+      [transfers]="transfers.data!"
+    ></app-transfers-table>
     <div class="show-more">
       <button (click)="onShowMore()">Show more</button>
     </div>

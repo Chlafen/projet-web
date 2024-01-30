@@ -25,13 +25,13 @@ export interface Details {
 }
 
 export interface BreadcrumbJSONLD {
-  "@context"?: string;
-  "@type"?: string;
+  '@context'?: string;
+  '@type'?: string;
   itemListElement?: ItemListElement[];
 }
 
 export interface ItemListElement {
-  "@type"?: string;
+  '@type'?: string;
   position?: number;
   name?: string;
   item?: string;
@@ -54,34 +54,9 @@ export interface AllMatch {
 }
 
 export interface NextOpponentClass {
-  name?: TeamNameEnum;
+  name?: string;
   shortName?: string;
   id?: string;
-}
-
-export enum TeamNameEnum {
-  AFCBournemouth = "AFC Bournemouth",
-  Arsenal = "Arsenal",
-  AstonVilla = "Aston Villa",
-  Bournemouth = "Bournemouth",
-  Brentford = "Brentford",
-  BrightonAndHoveAlbion = "Brighton and Hove Albion",
-  BrightonHoveAlbion = "Brighton & Hove Albion",
-  Burnley = "Burnley",
-  Chelsea = "Chelsea",
-  CrystalPalace = "Crystal Palace",
-  Everton = "Everton",
-  Fulham = "Fulham",
-  Liverpool = "Liverpool",
-  LutonTown = "Luton Town",
-  ManchesterCity = "Manchester City",
-  ManchesterUnited = "Manchester United",
-  NewcastleUnited = "Newcastle United",
-  NottinghamForest = "Nottingham Forest",
-  SheffieldUnited = "Sheffield United",
-  TottenhamHotspur = "Tottenham Hotspur",
-  WestHamUnited = "West Ham United",
-  WolverhamptonWanderers = "Wolverhampton Wanderers",
 }
 
 export interface Status {
@@ -101,27 +76,27 @@ export interface Reason {
 }
 
 export enum Long {
-  Abandoned = "Abandoned",
-  FullTime = "Full-Time",
-  Postponed = "Postponed",
+  Abandoned = 'Abandoned',
+  FullTime = 'Full-Time',
+  Postponed = 'Postponed',
 }
 
 export enum LongKey {
-  Aborted = "aborted",
-  Finished = "finished",
-  Postponed = "postponed",
+  Aborted = 'aborted',
+  Finished = 'finished',
+  Postponed = 'postponed',
 }
 
 export enum Short {
-  Ab = "Ab",
-  Ft = "FT",
-  Pp = "PP",
+  Ab = 'Ab',
+  Ft = 'FT',
+  Pp = 'PP',
 }
 
 export enum ShortKey {
-  AbortedShort = "aborted_short",
-  FulltimeShort = "fulltime_short",
-  PostponedShort = "postponed_short",
+  AbortedShort = 'aborted_short',
+  FulltimeShort = 'fulltime_short',
+  PostponedShort = 'postponed_short',
 }
 
 export interface FirstUnplayedMatch {
@@ -159,30 +134,29 @@ export interface OpponentClass {
 }
 
 export enum ShortNameEnum {
-  Arsenal = "Arsenal",
-  AstonVilla = "Aston Villa",
-  Bournemouth = "Bournemouth",
-  Brentford = "Brentford",
-  Brighton = "Brighton",
-  Burnley = "Burnley",
-  Chelsea = "Chelsea",
-  CrystalPalace = "Crystal Palace",
-  Everton = "Everton",
-  Fulham = "Fulham",
-  Liverpool = "Liverpool",
-  Luton = "Luton",
-  ManCity = "Man City",
-  ManUnited = "Man United",
-  Newcastle = "Newcastle",
-  NottmForest = "Nottm Forest",
-  SheffUtd = "Sheff Utd",
-  Tottenham = "Tottenham",
-  WestHam = "West Ham",
-  Wolves = "Wolves",
+  Arsenal = 'Arsenal',
+  AstonVilla = 'Aston Villa',
+  Bournemouth = 'Bournemouth',
+  Brentford = 'Brentford',
+  Brighton = 'Brighton',
+  Burnley = 'Burnley',
+  Chelsea = 'Chelsea',
+  CrystalPalace = 'Crystal Palace',
+  Everton = 'Everton',
+  Fulham = 'Fulham',
+  Liverpool = 'Liverpool',
+  Luton = 'Luton',
+  ManCity = 'Man City',
+  ManUnited = 'Man United',
+  Newcastle = 'Newcastle',
+  NottmForest = 'Nottm Forest',
+  SheffUtd = 'Sheff Utd',
+  Tottenham = 'Tottenham',
+  WestHam = 'West Ham',
+  Wolves = 'Wolves',
 }
 
-export interface Tournament {
-}
+export interface Tournament {}
 
 export interface TableElement {
   data?: Data;
@@ -213,9 +187,9 @@ export interface Legend {
 }
 
 export enum Color {
-  Ff4646 = "#FF4646",
-  The0046A7 = "#0046A7",
-  The2Ad572 = "#2AD572",
+  Ff4646 = '#FF4646',
+  The0046A7 = '#0046A7',
+  The2Ad572 = '#2AD572',
 }
 
 export interface DataTable {
@@ -226,7 +200,7 @@ export interface DataTable {
 }
 
 export interface All {
-  name?: TeamNameEnum;
+  name?: string;
   shortName?: ShortNameEnum;
   id?: number;
   pageUrl?: string;
@@ -267,17 +241,17 @@ export interface TeamFormAway {
 }
 
 export enum ResultString {
-  D = "D",
-  L = "L",
-  W = "W",
+  D = 'D',
+  L = 'L',
+  W = 'W',
 }
 
 export interface TooltipText {
   utcTime?: Date;
-  homeTeam?: TeamNameEnum;
+  homeTeam?: string;
   homeTeamId?: number;
   homeScore?: number;
-  awayTeam?: TeamNameEnum;
+  awayTeam?: string;
   awayTeamId?: number;
   awayScore?: number;
 }
@@ -297,10 +271,10 @@ export interface By {
   assists?: null;
   rating?: null;
   positionId?: null;
-  ccode?: null;
+  ccode?: string;
   cname?: null;
   teamId?: number;
-  teamName?: TeamNameEnum;
+  teamName?: string;
   showRole?: null;
   showCountryFlag?: null;
   showTeamFlag?: boolean;
@@ -337,7 +311,7 @@ export interface Participant {
   ccode?: null;
   cname?: null;
   teamId?: number;
-  teamName?: TeamNameEnum | null;
+  teamName?: string | null;
   showRole?: null;
   showCountryFlag?: null;
   showTeamFlag?: boolean;
@@ -354,8 +328,8 @@ export interface TeamColors {
 }
 
 export enum FontMode {
-  RGBA25525525510 = "rgba(255, 255, 255, 1.0)",
-  RGBA29292910 = "rgba(29, 29, 29, 1.0)",
+  RGBA25525525510 = 'rgba(255, 255, 255, 1.0)',
+  RGBA29292910 = 'rgba(29, 29, 29, 1.0)',
 }
 
 export interface SeasonStatLink {
@@ -413,15 +387,15 @@ export interface Fee {
 }
 
 export enum FeeText {
-  Fee = "fee",
-  FreeTransfer = "free transfer",
-  OnLoan = "on loan",
+  Fee = 'fee',
+  FreeTransfer = 'free transfer',
+  OnLoan = 'on loan',
 }
 
 export enum LocalizedFeeText {
-  OnLoan = "on_loan",
-  TransferFee = "transfer_fee",
-  TransferTypeFreeTransfer = "transfer_type_free_transfer",
+  OnLoan = 'on_loan',
+  TransferFee = 'transfer_fee',
+  TransferTypeFreeTransfer = 'transfer_type_free_transfer',
 }
 
 export interface Position {
@@ -435,11 +409,11 @@ export interface TransferType {
 }
 
 export enum LocalizationKey {
-  Contract = "contract",
-  OnLoan = "on_loan",
+  Contract = 'contract',
+  OnLoan = 'on_loan',
 }
 
 export enum Text {
-  Contract = "contract",
-  OnLoan = "on loan",
+  Contract = 'contract',
+  OnLoan = 'on loan',
 }
