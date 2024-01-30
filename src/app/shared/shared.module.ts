@@ -10,6 +10,8 @@ import { LoadingComponent } from './views/loading/loading.component';
 import { TransfersTableComponent } from './views/transfers-table/transfers-table.component';
 import { PlayerTransferDataComponent } from './views/player-transfer-data/player-transfer-data.component';
 import { RouterModule } from '@angular/router';
+import { NewsCardLargeComponent } from './views/news-card-large/news-card-large.component';
+import { NewsCardComponent } from './views/news-card/news-card.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, HttpClientModule, RouterModule],
@@ -21,6 +23,8 @@ import { RouterModule } from '@angular/router';
     LoadingComponent,
     TransfersTableComponent,
     PlayerTransferDataComponent,
+    NewsCardComponent,
+    NewsCardLargeComponent,
   ],
   exports: [
     FormsModule,
@@ -33,6 +37,8 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     TransfersTableComponent,
     PlayerTransferDataComponent,
+    NewsCardComponent,
+    NewsCardLargeComponent,
   ],
 })
 export class SharedModule {}
