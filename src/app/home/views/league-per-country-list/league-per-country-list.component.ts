@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { DisplayLeaguesAnimation } from './display-leagues.animation';
+import { Country } from 'src/app/common/types/all-leagues';
 
 @Component({
   selector: 'app-league-per-country-list',
@@ -10,7 +11,7 @@ import { DisplayLeaguesAnimation } from './display-leagues.animation';
   ]
 })
 export class LeaguePerCountryListComponent {
-  @Input() country: any;
+  @Input() country!: Country;
   isOpen: boolean = false;
 
   onItemClick() {

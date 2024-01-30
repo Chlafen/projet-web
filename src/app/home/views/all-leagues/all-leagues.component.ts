@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Country } from 'src/app/common/types/all-leagues';
 
 @Component({
   selector: 'app-all-leagues',
@@ -6,7 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./all-leagues.component.sass']
 })
 export class AllLeaguesComponent {
-  countries: any[] = [
+  @Input() countries!: Country[];
+
+  countries2: any[] = [
     {
       name: 'International',
       logo: 'https://images.fotmob.com/image_resources/logo/teamlogo/int.png',
@@ -52,21 +55,6 @@ export class AllLeaguesComponent {
           logo: 'https://media.api-sports.io/football/leagues/88.png',
         },
       ],
-    },
-    {
-      name: 'Argentina',
-      logo: 'https://images.fotmob.com/image_resources/logo/teamlogo/arg.png',
-      leagues: [],
-    },
-    {
-      name: 'Armenia',
-      logo: 'https://images.fotmob.com/image_resources/logo/teamlogo/arm.png',
-      leagues: [],
-    },
-    {
-      name: 'Australia',
-      logo: 'https://images.fotmob.com/image_resources/logo/teamlogo/aus.png',
-      leagues: [],
     },
   ];
 }

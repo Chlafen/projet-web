@@ -1,11 +1,18 @@
 <main class="home">
   <div class="side-home">
-    <app-top-leagues [leagues]="(topLeaguesList$ | async)!" *ngIf="(newsStatus$ | async) == 'Success'"
+    <!-- Top Leagues -->
+    <app-top-leagues [leagues]="(topLeaguesList$ | async)!" *ngIf="(topLeaguesStatus$ | async) == 'Success'"
       class="w-100"></app-top-leagues>
-    <app-wrapper *ngIf="(newsStatus$ | async) == 'Loading'" class="w-100">
+    <app-wrapper *ngIf="(topLeaguesStatus$ | async) == 'Loading'" class="w-100">
       <app-loading class="w-100"></app-loading>
     </app-wrapper>
-    <app-all-leagues class="w-100"></app-all-leagues>
+
+    <!-- All Leagues -->
+    <app-all-leagues [countries]="(allLeaguesList$ | async)!" *ngIf="(allLeaguesStatus$ | async) == 'Success'"
+      class="w-100"></app-all-leagues>
+    <app-wrapper *ngIf="(allLeaguesStatus$ | async) == 'Loading'" class="w-100">
+      <app-loading class="w-100"></app-loading>
+    </app-wrapper>
   </div>
   <app-feed class="w-100"></app-feed>
   <div class="side-home">

@@ -1,5 +1,5 @@
 <div class="country-item" (click)="onItemClick()">
-  <img class="country-logo" [src]="country.logo" alt="country logo" />
+  <img class="country-logo" countryFallbackImage [src]="country.ccode | countryImage" alt="country logo" />
   <div class="country-name-container">
     <p class="country-name">{{ country.name }}</p>
     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">

@@ -1,5 +1,4 @@
-import { Component, Input, Pipe, PipeTransform } from '@angular/core';
-import { WorldNews } from 'src/app/common/types/world-news';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: "leagueImage",
