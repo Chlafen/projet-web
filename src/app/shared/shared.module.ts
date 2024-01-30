@@ -12,6 +12,9 @@ import { PlayerTransferDataComponent } from './views/player-transfer-data/player
 import { RouterModule } from '@angular/router';
 import { NewsCardLargeComponent } from './views/news-card-large/news-card-large.component';
 import { NewsCardComponent } from './views/news-card/news-card.component';
+import { LeagueImagePipe } from './views/league-image/league-image.pipe';
+import { CountryImagePipe } from './views/country-image/country-image.pipe';
+import { CountryFallbackImageDirective } from './views/country-fallback-image/country-fallback-image.directive';
 
 @NgModule({
   imports: [CommonModule, FormsModule, HttpClientModule, RouterModule],
@@ -25,6 +28,9 @@ import { NewsCardComponent } from './views/news-card/news-card.component';
     PlayerTransferDataComponent,
     NewsCardComponent,
     NewsCardLargeComponent,
+    LeagueImagePipe,
+    CountryImagePipe,
+    CountryFallbackImageDirective,
   ],
   exports: [
     FormsModule,
@@ -39,6 +45,9 @@ import { NewsCardComponent } from './views/news-card/news-card.component';
     PlayerTransferDataComponent,
     NewsCardComponent,
     NewsCardLargeComponent,
+    LeagueImagePipe,
+    CountryImagePipe,
+    CountryFallbackImageDirective,
   ],
 })
-export class SharedModule {}
+export class SharedModule { }

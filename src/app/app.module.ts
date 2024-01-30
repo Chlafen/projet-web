@@ -12,6 +12,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { HttpEffect } from './state/effects/http.effect';
 import { reducers } from './state/reducers';
 import { NewsService } from './services/news.service';
+import { LeaguesService } from './services/leagues.service';
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
   imports: [
@@ -22,7 +23,7 @@ import { NewsService } from './services/news.service';
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([HttpEffect]),
   ],
-  providers: [NewsService],
+  providers: [NewsService, LeaguesService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
