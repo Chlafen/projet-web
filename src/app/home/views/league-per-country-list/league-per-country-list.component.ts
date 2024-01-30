@@ -12,7 +12,7 @@ import { Country } from 'src/app/common/types/all-leagues';
 })
 export class LeaguePerCountryListComponent {
   @Input() country!: Country;
-  isOpen: boolean = false;
+  @Input() isOpen: boolean = false;
 
   onItemClick() {
     this.isOpen = !this.isOpen;
