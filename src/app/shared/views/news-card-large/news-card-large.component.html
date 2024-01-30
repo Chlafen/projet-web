@@ -11,7 +11,8 @@
     </div>
     <div class="news-content">
       <h3 class="title">
-        {{ news.title }}
+        {{ news.title | slice : 0 : 100
+        }}<span *ngIf="(news.title?.length ?? 0) > 85">...</span>
       </h3>
       <span class="source">
         <div class="source-img">

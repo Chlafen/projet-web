@@ -6,19 +6,18 @@
         <app-loading class="w-100"> </app-loading>
       </ng-container>
 
-      <ng-container
-        *ngIf="(newsStatus$ | async) == 'Success' && windowWidth > 985"
-      >
+      <ng-container *ngIf="(newsStatus$ | async) == 'Success'">
         <app-news-card-large
           class="w-100"
+          *ngIf="windowWidth > 985"
           [news]="(newsList$ | async)?.[0]??{}"
         ></app-news-card-large>
         <div class="news-list">
           <ng-container *ngFor="let news of newsList$ | async; let i = index">
-            <app-news-card-large
+            <app-news-card
               *ngIf="(i == 0 && windowWidth <= 985) || i > 0"
               [news]="news"
-            ></app-news-card-large>
+            ></app-news-card>
           </ng-container>
         </div>
       </ng-container>
