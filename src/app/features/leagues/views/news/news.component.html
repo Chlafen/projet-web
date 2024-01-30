@@ -1,0 +1,11 @@
+<div class="news-page w-100 m-auto">
+  <app-wrapper class="w-100">
+    <div class="content">
+      <div class="news-list">
+        <ng-container *ngFor="let news of newsList; let i = index">
+          <app-news-card [news]="news"></app-news-card>
+        </ng-container>
+      </div>
+    </div>
+  </app-wrapper>
+</div>

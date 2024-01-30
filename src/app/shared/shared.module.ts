@@ -7,15 +7,24 @@ import { ArrowRightSolidComponent } from './views/arrow-right-solid/arrow-right-
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from './views/loading/loading.component';
+import { TransfersTableComponent } from './views/transfers-table/transfers-table.component';
+import { PlayerTransferDataComponent } from './views/player-transfer-data/player-transfer-data.component';
+import { RouterModule } from '@angular/router';
+import { NewsCardLargeComponent } from './views/news-card-large/news-card-large.component';
+import { NewsCardComponent } from './views/news-card/news-card.component';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, HttpClientModule, RouterModule],
   declarations: [
     WrapperComponent,
     SearchbarComponent,
     TransferIconComponent,
     ArrowRightSolidComponent,
     LoadingComponent,
+    TransfersTableComponent,
+    PlayerTransferDataComponent,
+    NewsCardComponent,
+    NewsCardLargeComponent,
   ],
   exports: [
     FormsModule,
@@ -26,6 +35,10 @@ import { LoadingComponent } from './views/loading/loading.component';
     ArrowRightSolidComponent,
     LoadingComponent,
     HttpClientModule,
+    TransfersTableComponent,
+    PlayerTransferDataComponent,
+    NewsCardComponent,
+    NewsCardLargeComponent,
   ],
 })
 export class SharedModule {}

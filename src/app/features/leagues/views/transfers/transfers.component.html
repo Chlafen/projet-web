@@ -1,0 +1,11 @@
+<div class="transfers-page w-100 m-auto">
+  <app-wrapper class="w-100">
+    <app-transfers-table
+      class="w-100"
+      [transfers]="transfers.data!"
+    ></app-transfers-table>
+    <div class="show-more">
+      <button (click)="onShowMore()">Show more</button>
+    </div>
+  </app-wrapper>
+</div>

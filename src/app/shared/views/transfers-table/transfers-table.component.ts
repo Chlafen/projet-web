@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Datum, Fee, FeeText } from 'src/app/common/types/league';
+import { Datum, FeeText } from 'src/app/common/types/league';
 
 @Component({
   selector: 'app-transfers-table',

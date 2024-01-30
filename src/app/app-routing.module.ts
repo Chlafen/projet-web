@@ -19,6 +19,11 @@ const routes: Routes = [
         (m) => m.TransfersModule
       ),
   },
+  {
+    path: 'leagues',
+    loadChildren: () =>
+      import('./features/leagues/leagues.module').then((m) => m.LeaguesModule),
+  },
 ];
 
 @NgModule({

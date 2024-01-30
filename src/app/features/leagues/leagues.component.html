@@ -1,0 +1,72 @@
+<div class="leagues-page w-100 m-auto">
+  <app-wrapper class="w-100">
+    <div class="CardCSS">
+      <section>
+        <header class="PosterCSS w-100">
+          <div class="IconAndName">
+            <div class="LeagueIconContainer" width="42">
+              <img
+                src="https://images.fotmob.com/image_resources/logo/leaguelogo/dark/47.png"
+                class="Image"
+                alt=""
+                width="42"
+                height="42"
+                loading="lazy"
+              />
+            </div>
+            <div class="FifaRanking">
+              <span class="TeamOrLeagueName">
+                <span>{{ league.details?.name }}</span></span
+              >
+              <span class="CountrySpan">{{
+                league.details?.country | titlecase
+              }}</span>
+            </div>
+          </div>
+          <div class="SeasonsDropdownWrapper">
+            <select
+              aria-label="Selected: 2023/2024"
+              class="applyMediumHover"
+              (change)="onSeasonChange($event)"
+            >
+              <option
+                *ngFor="let season of league.allAvailableSeasons"
+                [value]="season"
+              >
+                {{ season }}
+              </option>
+            </select>
+          </div>
+        </header>
+        <nav class="NavContainerCSS">
+          <a
+            [routerLinkActive]="'active-link'"
+            [routerLink]="['overview']"
+            class="navlink"
+            >Overview</a
+          >
+          <a
+            [routerLinkActive]="'active-link'"
+            [routerLink]="['matches']"
+            class="navlink"
+            >Matches</a
+          >
+          <a
+            [routerLinkActive]="'active-link'"
+            [routerLink]="['transfers']"
+            class="navlink"
+            >Transfers</a
+          >
+          <a
+            [routerLinkActive]="'active-link'"
+            [routerLink]="['news']"
+            class="navlink"
+            >News</a
+          >
+        </nav>
+      </section>
+    </div>
+  </app-wrapper>
+</div>
+<router-outlet></router-outlet>
+<div class="mb-1rem"></div>
