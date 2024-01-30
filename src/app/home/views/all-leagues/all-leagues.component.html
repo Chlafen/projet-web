@@ -1,9 +1,9 @@
 <app-wrapper>
   <p><b>All Leagues</b></p>
-  <app-feed-filter-search class="w-100"></app-feed-filter-search>
+  <app-feed-filter-search (searchText)="onSearchText($event)" class="w-100"></app-feed-filter-search>
   <div class="w-100 mt-3">
     <ng-container *ngFor="let country of countries">
-      <app-league-per-country-list class="w-100" [country]="country"></app-league-per-country-list>
+      <app-league-per-country-list class="w-100" [isOpen]="openAll" [country]="country"></app-league-per-country-list>
     </ng-container>
   </div>
 </app-wrapper>

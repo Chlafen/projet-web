@@ -21,6 +21,8 @@ import { TransferCardComponent } from './views/transfer-card/transfer-card.compo
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -39,6 +41,12 @@ import { StoreModule } from '@ngrx/store';
     HomeNewsCardComponent,
     TransferCardComponent,
   ],
-  imports: [CommonModule, HomeRoutingModule, SharedModule],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
-export class HomeModule {}
+export class HomeModule { }
