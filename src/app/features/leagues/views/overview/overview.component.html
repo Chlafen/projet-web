@@ -1,20 +1,21 @@
-<div class="news-page w-100 m-auto">
 <div class="overview-page w-100 m-auto">
   <app-wrapper class="w-100">
-    <h4>Matches</h4>
-    
+    <app-overview-matches
+      class="w-100"
+      [matches]="overviewMatches"
+    ></app-overview-matches>
   </app-wrapper>
   <app-wrapper class="w-100">
-      <app-wrapper class="w-100">
-        <h4>Latest News</h4>
-        <div class="content">
-          <div class="news-list">
-            <ng-container *ngFor="let news of newsList; let i = index">
-              <app-news-card [news]="news"></app-news-card>
-            </ng-container>
-          </div>
-        </div>
-      </app-wrapper>
-     </app-wrapper>
+    <div class="content">
+      <h4>News</h4>
+      <div class="news-list">
+        <ng-container *ngFor="let news of newsList; let i = index">
+          <app-news-overview-card
+            class="w-100 h-100"
+            [news]="news"
+          ></app-news-overview-card>
+        </ng-container>
+      </div>
     </div>
+  </app-wrapper>
 </div>

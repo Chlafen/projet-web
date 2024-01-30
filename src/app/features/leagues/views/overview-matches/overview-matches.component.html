@@ -1,0 +1,25 @@
+<div class="overview-matches w-100 m-auto">
+  <div class="header">
+    <h2 class="title">Matches</h2>
+    <a [routerLink]="['../', 'matches']" class="all-matches"> All Matches</a>
+  </div>
+  <div class="content">
+    <ngx-slick-carousel
+      class="carousel"
+      #slickModal="slick-carousel"
+      [config]="slideConfig"
+      (init)="slickInit($event)"
+    >
+      <div class="slide" *ngFor="let match of matches" ngxSlickItem>
+        <app-overview-match-card [match]="match"></app-overview-match-card>
+      </div>
+    </ngx-slick-carousel>
+  </div>
+
+  <!-- <button (click)="slickModal.slickGoTo(2)">slickGoto 2</button> -->
+
+  <!--
+  <app-arrow-solid-left></app-arrow-solid-left>
+  <div class="matches-list"></div>
+  <app-arrow-solid-left></app-arrow-solid-left> -->
+</div>

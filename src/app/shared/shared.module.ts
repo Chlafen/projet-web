@@ -12,9 +12,17 @@ import { PlayerTransferDataComponent } from './views/player-transfer-data/player
 import { RouterModule } from '@angular/router';
 import { NewsCardLargeComponent } from './views/news-card-large/news-card-large.component';
 import { NewsCardComponent } from './views/news-card/news-card.component';
+import { ArrowSolidLeftComponent } from './views/arrow-solid-left/arrow-solid-left.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, HttpClientModule, RouterModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule,
+    SlickCarouselModule,
+  ],
   declarations: [
     WrapperComponent,
     SearchbarComponent,
@@ -25,6 +33,7 @@ import { NewsCardComponent } from './views/news-card/news-card.component';
     PlayerTransferDataComponent,
     NewsCardComponent,
     NewsCardLargeComponent,
+    ArrowSolidLeftComponent,
   ],
   exports: [
     FormsModule,
@@ -39,6 +48,8 @@ import { NewsCardComponent } from './views/news-card/news-card.component';
     PlayerTransferDataComponent,
     NewsCardComponent,
     NewsCardLargeComponent,
+    ArrowSolidLeftComponent,
+    SlickCarouselModule,
   ],
 })
 export class SharedModule {}

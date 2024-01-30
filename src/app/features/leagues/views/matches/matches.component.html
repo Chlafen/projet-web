@@ -1,9 +1,9 @@
 <div class="matches-page w-100 m-auto">
   <app-wrapper class="w-100">
-    <nav class="subTabContainerCSS">
-      <button >By date</button>
-      <button >By round</button></nav>
-      
-
-    </app-wrapper>
+    <app-match-page-card
+      *ngFor="let match of matches.allMatches"
+      class="w-100"
+      [match]="match"
+    ></app-match-page-card>
+  </app-wrapper>
 </div>
