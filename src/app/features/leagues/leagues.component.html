@@ -24,16 +24,18 @@
             </div>
           </div>
           <div class="SeasonsDropdownWrapper">
-            <div style="position: relative">
-              <select aria-label="Selected: 2023/2024" class="applyMediumHover">
-                <option
-                  *ngFor="let season of league.allAvailableSeasons"
-                  [value]="season"
-                >
-                  {{ season }}
-                </option>
-              </select>
-            </div>
+            <select
+              aria-label="Selected: 2023/2024"
+              class="applyMediumHover"
+              (change)="onSeasonChange($event)"
+            >
+              <option
+                *ngFor="let season of league.allAvailableSeasons"
+                [value]="season"
+              >
+                {{ season }}
+              </option>
+            </select>
           </div>
         </header>
         <nav class="NavContainerCSS">

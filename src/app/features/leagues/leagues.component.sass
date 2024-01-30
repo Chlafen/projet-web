@@ -52,38 +52,44 @@
   font-weight: bold
   color: gray
 
-.SeasonsDropdownWrapper select
-  display: flex
-  -webkit-box-align: center
-  align-items: center
-  -webkit-box-pack: center
-  justify-content: center
-  padding: 0px 32px 0px 16px
+.SeasonsDropdownWrapper
   border-radius: 20px
-  height: 40px
-  background-color: var(--TLHeader-buttonBackground)
-  background-position-x: calc(100% - 16px)
-  color: var(--TLHeader-buttonColor)
-  font-size: 14px
-  margin-left: 800px
+  transition: all ease-in-out .15s,box-shadow ease-in-out .15s
+  cursor: pointer!important
+  select
+    width: 7.2rem
+    height: 40px
+    border: 1px solid #b2b2b280
+    border-radius: 20px
+    padding: 0 0 0 1rem
+    font-size: 14px
+    color: white
+    font-weight: bold
+    background-color: transparent
+    background-image: none
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+    display: flex
+    flex-direction: row
+    align-items: center
+  &:focus
+    border: 1px solid #b2b2b280
+  &:hover
+    border: 1px solid #b2b2b280
+    cursor: pointer!important
 
-.applyMediumHover option
-  color: black
-  background-color: var(--GlobalColorScheme-Background-cardSecondary)
-
-.SeasonsDropdownWrapper select
-  display: flex
-  -webkit-box-align: center
-  align-items: center
-  -webkit-box-pack: center
-  justify-content: center
-  padding: 0px 32px 0px 16px
-  border-radius: 20px
-  height: 40px
-  background-color: var(--TLHeader-buttonBackground)
-  background-position-x: calc(100% - 16px)
-  color: var(--TLHeader-buttonColor)
-  font-size: 14px
+  option
+    background-color: #1e1e1e
+    color: white
+    font-weight: normal
+    font-size: 14px
+    cursor: pointer!important
+    padding: 0.5rem
+    border-radius: 5px
+    border: none
+  &:hover
+    background-color: #2e2e2e
+    border: none
+    cursor: pointer
 
 .NavContainerCSS
   gap: 40px
@@ -133,7 +139,7 @@
   background-color: transparent
   border-radius: 3px 3px 0px 0px
 
-a, button
+a, button, select, option
   -webkit-text-decoration: none
   text-decoration: none
   color: var(--GlobalColorScheme-Text-textDefault)

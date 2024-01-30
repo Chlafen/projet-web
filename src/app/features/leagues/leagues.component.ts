@@ -13,6 +13,11 @@ import {
   styleUrls: ['./leagues.component.sass'],
 })
 export class LeaguesComponent {
+  onSeasonChange(season: any) {
+    this.selectedSeason = season.target.value;
+    console.log(this.selectedSeason);
+  }
+
   league: League = {
     tabs: ['overview', 'table', 'matches', 'stats', 'transfers'],
     allAvailableSeasons: [
@@ -359,4 +364,5 @@ export class LeaguesComponent {
       ],
     },
   };
+  selectedSeason = `${this.league.details?.selectedSeason}`;
 }
