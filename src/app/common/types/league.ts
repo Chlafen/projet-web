@@ -129,31 +129,8 @@ export interface LeagueOverviewMatch {
 
 export interface OpponentClass {
   id?: string;
-  name?: ShortNameEnum;
+  name?: string;
   score?: number;
-}
-
-export enum ShortNameEnum {
-  Arsenal = 'Arsenal',
-  AstonVilla = 'Aston Villa',
-  Bournemouth = 'Bournemouth',
-  Brentford = 'Brentford',
-  Brighton = 'Brighton',
-  Burnley = 'Burnley',
-  Chelsea = 'Chelsea',
-  CrystalPalace = 'Crystal Palace',
-  Everton = 'Everton',
-  Fulham = 'Fulham',
-  Liverpool = 'Liverpool',
-  Luton = 'Luton',
-  ManCity = 'Man City',
-  ManUnited = 'Man United',
-  Newcastle = 'Newcastle',
-  NottmForest = 'Nottm Forest',
-  SheffUtd = 'Sheff Utd',
-  Tottenham = 'Tottenham',
-  WestHam = 'West Ham',
-  Wolves = 'Wolves',
 }
 
 export interface Tournament {}
@@ -201,7 +178,7 @@ export interface DataTable {
 
 export interface All {
   name?: string;
-  shortName?: ShortNameEnum;
+  shortName?: string;
   id?: number;
   pageUrl?: string;
   deduction?: number | null;

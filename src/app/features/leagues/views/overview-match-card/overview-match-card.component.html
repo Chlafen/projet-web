@@ -1,0 +1,48 @@
+<div class="match-overview-card">
+  <div class="opponent">
+    <div class="logo">
+      <img
+        [src]="
+          'https://images.fotmob.com/image_resources/logo/teamlogo/' +
+          8650 +
+          '.png'
+        "
+        alt=""
+      />
+    </div>
+    <p class="name">
+      {{ match.away?.name }}
+    </p>
+  </div>
+  <div class="stats">
+    <div class="scoreOrTime">
+      <span *ngIf="!match.notStarted" class="score">
+        {{ match.home?.score }} - {{ match.away?.score }}
+      </span>
+      <span *ngIf="match.notStarted" class="time">
+        {{ match.status?.utcTime | date : "HH:mm" }}
+      </span>
+    </div>
+
+    <div class="date">
+      <span class="date">
+        {{ match.status?.utcTime | date : "dd MMM" }}
+      </span>
+    </div>
+  </div>
+  <div class="opponent">
+    <div class="logo">
+      <img
+        [src]="
+          'https://images.fotmob.com/image_resources/logo/teamlogo/' +
+          10203 +
+          '.png'
+        "
+        alt=""
+      />
+    </div>
+    <p class="name">
+      {{ match.away?.name }}
+    </p>
+  </div>
+</div>

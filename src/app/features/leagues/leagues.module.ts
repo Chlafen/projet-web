@@ -8,6 +8,10 @@ import { OverviewComponent } from './views/overview/overview.component';
 import { MatchesComponent } from './views/matches/matches.component';
 import { TransfersComponent } from './views/transfers/transfers.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { OverviewMatchesComponent } from './views/overview-matches/overview-matches.component';
+import { OverviewMatchCardComponent } from './views/overview-match-card/overview-match-card.component';
+import { NewsOverviewCardComponent } from './views/news-overview-card/news-overview-card.component';
+import { MatchPageCardComponent } from './views/match-page-card/match-page-card.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +20,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
     OverviewComponent,
     MatchesComponent,
     TransfersComponent,
+    OverviewMatchesComponent,
+    OverviewMatchCardComponent,
+    NewsOverviewCardComponent,
+    MatchPageCardComponent,
   ],
   imports: [CommonModule, LeaguesRoutingModule, SharedModule],
 })

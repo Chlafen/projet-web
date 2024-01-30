@@ -1,0 +1,36 @@
+<div class="match-list-item">
+  <div class="wrap-item">
+    <span class="right">
+      {{ match.home?.name }}
+    </span>
+    <img
+      class="team-logo"
+      [src]="
+        'https://images.fotmob.com/image_resources/logo/teamlogo/' +
+        match.home?.id +
+        '_xsmall.png'
+      "
+      alt="team logo"
+    />
+
+    <b class="match-score" *ngIf="match.status?.finished">
+      {{ match.status?.scoreStr }}
+    </b>
+    <b class="match-score" *ngIf="!match.status?.finished">
+      {{ match.status?.utcTime | date : "dd MMM" }}
+    </b>
+    <img
+      class="team-logo"
+      [src]="
+        'https://images.fotmob.com/image_resources/logo/teamlogo/' +
+        match.away?.id +
+        '_xsmall.png'
+      "
+      alt="team logo"
+    />
+
+    <span class="left">
+      {{ match.away?.name }}
+    </span>
+  </div>
+</div>
