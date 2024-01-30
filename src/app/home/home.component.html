@@ -1,16 +1,17 @@
 <main class="home">
   <div class="side-home">
-    <app-top-leagues class="w-100"></app-top-leagues>
+    <app-top-leagues [leagues]="(topLeaguesList$ | async)!" *ngIf="(newsStatus$ | async) == 'Success'"
+      class="w-100"></app-top-leagues>
+    <app-wrapper *ngIf="(newsStatus$ | async) == 'Loading'" class="w-100">
+      <app-loading class="w-100"></app-loading>
+    </app-wrapper>
     <app-all-leagues class="w-100"></app-all-leagues>
   </div>
   <app-feed class="w-100"></app-feed>
   <div class="side-home">
     <app-top-transfers class="w-100"></app-top-transfers>
-    <app-last-news
-      *ngIf="(newsStatus$ | async) == 'Success'"
-      [lastNews]="(newsList$ | async)!.slice(0, 4)"
-      class="w-100"
-    ></app-last-news>
+    <app-last-news *ngIf="(newsStatus$ | async) == 'Success'" [lastNews]="(newsList$ | async)!.slice(0, 4)"
+      class="w-100"></app-last-news>
     <app-wrapper *ngIf="(newsStatus$ | async) == 'Loading'" class="w-100">
       <app-loading class="w-100"></app-loading>
     </app-wrapper>

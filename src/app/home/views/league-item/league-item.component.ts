@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { League } from 'src/app/common/types/all-leagues';
 
 @Component({
   selector: 'app-league-item',
@@ -6,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./league-item.component.sass'],
 })
 export class LeagueItemComponent {
-  @Input() league: any;
+  @Input() league!: League;
 }
