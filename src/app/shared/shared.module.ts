@@ -5,14 +5,17 @@ import { SearchbarComponent } from './views/searchbar/searchbar.component';
 import { TransferIconComponent } from './views/transfer-icon/transfer-icon.component';
 import { ArrowRightSolidComponent } from './views/arrow-right-solid/arrow-right-solid.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { LoadingComponent } from './views/loading/loading.component';
 
 @NgModule({
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HttpClientModule],
   declarations: [
     WrapperComponent,
     SearchbarComponent,
     TransferIconComponent,
     ArrowRightSolidComponent,
+    LoadingComponent,
   ],
   exports: [
     FormsModule,
@@ -21,6 +24,8 @@ import { FormsModule } from '@angular/forms';
     TransferIconComponent,
     CommonModule,
     ArrowRightSolidComponent,
+    LoadingComponent,
+    HttpClientModule,
   ],
 })
 export class SharedModule {}

@@ -1,11 +1,16 @@
-<div class="home-news-card" [ngStyle]="style">
-  <img [src]="myNew.image" [ngStyle]="imgStyle" alt="news image" />
+<a
+  class="home-news-card"
+  [ngStyle]="style"
+  target="_blank"
+  [href]="'https://fotmob.com/' + myNew.page?.url"
+>
+  <img [src]="myNew.imageUrl" [ngStyle]="imgStyle" [alt]="myNew.sourceStr" />
   <div class="news-content">
     <div class="news-title">
       {{ myNew.title }}
     </div>
     <div class="news-date">
-      {{ myNew.date }}
+      {{ myNew.gmtTime | date : "d MMM YYY" }}
     </div>
   </div>
-</div>
+</a>

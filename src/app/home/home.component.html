@@ -6,6 +6,13 @@
   <app-feed class="w-100"></app-feed>
   <div class="side-home">
     <app-top-transfers class="w-100"></app-top-transfers>
-    <app-last-news class="w-100"></app-last-news>
+    <app-last-news
+      *ngIf="(newsStatus$ | async) == 'Success'"
+      [lastNews]="(newsList$ | async)!.slice(0, 4)"
+      class="w-100"
+    ></app-last-news>
+    <app-wrapper *ngIf="(newsStatus$ | async) == 'Loading'" class="w-100">
+      <app-loading class="w-100"></app-loading>
+    </app-wrapper>
   </div>
 </main>
