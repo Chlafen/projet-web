@@ -1,11 +1,24 @@
 <div class="home-feed">
-  <app-home-filter class="w-100"></app-home-filter>
-  <ng-container *ngIf="leaguesStatus == 'Success'">
+  <app-home-filter
+    class="w-100"
+    (onFiltersChange)="onFiltersChange($event)"
+    (onDateChange)="onDateChange($event)"
+    [filters]="filters"
+    [date]="matchesDate"
+  ></app-home-filter>
+
+  <ng-container *ngIf="leaguesStatus == 'Success' && byTimeMatches.length == 0">
     <app-feed-league-section
       class="w-100"
-      *ngFor="let league of leagueMatches.leagues"
+      *ngFor="let league of filteredMatches.leagues"
       [league]="league"
     ></app-feed-league-section>
+  </ng-container>
+  <ng-container *ngIf="leaguesStatus == 'Success' && byTimeMatches.length > 0">
+    <app-feed-bytime-matches
+      class="w-100"
+      [matches]="byTimeMatches"
+    ></app-feed-bytime-matches>
   </ng-container>
   <ng-container *ngIf="leaguesStatus == 'Loading'">
     <app-wrapper class="w-100" *ngIf="!leagueMatches.leagues?.length">

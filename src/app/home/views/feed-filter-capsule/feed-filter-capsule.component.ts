@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { HomeFilterOption } from 'src/app/common/types/league';
 
 @Component({
   selector: 'app-feed-filter-capsule',
@@ -7,4 +8,10 @@ import { Component, Input } from '@angular/core';
 })
 export class FeedFilterCapsuleComponent {
   @Input() content!: string;
+  @Input() selected!: boolean;
+  @Output() onToggled = new EventEmitter<HomeFilterOption>();
+
+  toggle() {
+    this.onToggled.emit(this.content as HomeFilterOption);
+  }
 }

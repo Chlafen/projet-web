@@ -24,6 +24,8 @@
     class="w-100"
     [matches]="(matchesList$ | async)!"
     [status]="(matchesStatus$ | async)!"
+    [matchesDate]="date"
+    (dateChange)="onDateChange($event)"
   ></app-feed>
   <div class="side-home">
     <app-top-transfers

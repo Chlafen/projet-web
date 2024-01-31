@@ -25,6 +25,8 @@ import { CountryFallbackImageDirective } from './directives/country-fallback-ima
 import { PlayerFallbackImageDirective } from './directives/player-fallback-image/player-fallback-image.directive';
 import { TeamFallbackImageDirective } from './directives/team-fallback-image/team-fallback-image.directive';
 import { CcodeToCountryPipe } from './pipes/ccode-to-country/ccode-to-country.pipe';
+import { FeedBytimeMatchesComponent } from './views/feed-bytime-matches/feed-bytime-matches.component';
+import { MatchListItemComponent } from './views/match-list-item/match-list-item.component';
 
 @NgModule({
   imports: [
@@ -57,6 +59,8 @@ import { CcodeToCountryPipe } from './pipes/ccode-to-country/ccode-to-country.pi
     PlayerFallbackImageDirective,
     TeamImagePipe,
     CcodeToCountryPipe,
+    FeedBytimeMatchesComponent,
+    MatchListItemComponent,
   ],
   exports: [
     FormsModule,
@@ -71,6 +75,9 @@ import { CcodeToCountryPipe } from './pipes/ccode-to-country/ccode-to-country.pi
     PlayerTransferDataComponent,
     NewsCardComponent,
     NewsCardLargeComponent,
+    FeedBytimeMatchesComponent,
+    MatchListItemComponent,
+
     LeagueImagePipe,
     CountryImagePipe,
     PlayerImagePipe,
