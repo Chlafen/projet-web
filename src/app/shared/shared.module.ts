@@ -23,6 +23,7 @@ import { TeamImagePipe } from './pipes/team-image/team-image.pipe';
 // Directives
 import { CountryFallbackImageDirective } from './directives/country-fallback-image/country-fallback-image.directive';
 import { PlayerFallbackImageDirective } from './directives/player-fallback-image/player-fallback-image.directive';
+import { TeamFallbackImageDirective } from './directives/team-fallback-image/team-fallback-image.directive';
 
 @NgModule({
   imports: [
@@ -51,6 +52,7 @@ import { PlayerFallbackImageDirective } from './directives/player-fallback-image
     NewsCardLargeComponent,
     ArrowSolidLeftComponent,
     PlayerImagePipe,
+    TeamFallbackImageDirective,
     PlayerFallbackImageDirective,
     TeamImagePipe,
   ],
@@ -79,6 +81,7 @@ import { PlayerFallbackImageDirective } from './directives/player-fallback-image
     NewsCardLargeComponent,
     ArrowSolidLeftComponent,
     SlickCarouselModule,
+    TeamFallbackImageDirective,
   ],
 })
 export class SharedModule {}

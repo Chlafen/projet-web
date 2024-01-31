@@ -1,5 +1,5 @@
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { mergeMap, map, catchError, of, tap } from 'rxjs';
+import { mergeMap, map, catchError, of } from 'rxjs';
 import { transfersActions } from '../actions';
 import {
   EnvironmentInjector,
@@ -18,10 +18,10 @@ export const loadTransfers = (context: EnvironmentInjector) => {
         ofType(transfersActions.loadTransfers),
         mergeMap(({ getTransfersQuery }) =>
           transfersService.getTransfers(getTransfersQuery).pipe(
-            tap((transfers) => console.log(transfers)),
             map((transfers) =>
               transfersActions.loadTransfersSuccess(
-                transfers.slice(0, Math.min(3, transfers.length))
+                transfers.transfers,
+                transfers.hits
               )
             ),
             catchError((error) =>

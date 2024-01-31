@@ -13,3 +13,8 @@ export const getTransfersStatus = createSelector(
   transfersState,
   (state) => state.status
 );
+
+export const getTransfersCount = createSelector(
+  transfersState,
+  (state) => state.total
+);

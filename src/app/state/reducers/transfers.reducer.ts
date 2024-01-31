@@ -4,12 +4,14 @@ import * as transfersActions from '../actions/transfers.action';
 
 export interface State {
   transfers: Transfer[];
+  total: number;
   error: string;
   status: 'Initial' | 'Loading' | 'Success' | 'Error';
 }
 
 export const initialState: State = {
   transfers: [],
+  total: 0,
   error: '',
   status: 'Initial',
 };
@@ -20,6 +22,7 @@ const _reducer = createReducer(
     return {
       ...state,
       transfers: action.transfers,
+      total: action.totalHits,
       status: 'Success' as const,
     };
   }),

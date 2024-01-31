@@ -9,7 +9,7 @@ export const loadTransfers = createAction(
 
 export const loadTransfersSuccess = createAction(
   '[Transfers] Load Transfers Success',
-  (transfers: Transfer[]) => ({ transfers })
+  (transfers: Transfer[], totalHits: number) => ({ transfers, totalHits })
 );
 
 export const loadTransfersError = createAction(

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { ENDPOINT } from '../app.config';
-import { Transfer, Transfers } from '../common/types/transfers';
+import { Transfers } from '../common/types/transfers';
 
 @Injectable({
   providedIn: 'root',
@@ -10,14 +10,12 @@ import { Transfer, Transfers } from '../common/types/transfers';
 export class TransfersService {
   http = inject(HttpClient);
 
-  getTransfers(getTransfersQuery: GetTransfersQuery): Observable<Transfer[]> {
-    let res = this.http.get<Transfers>(ENDPOINT + 'transfers', {
+  getTransfers(getTransfersQuery: GetTransfersQuery): Observable<Transfers> {
+    return this.http.get<Transfers>(ENDPOINT + 'transfers', {
       params: {
         ...getTransfersQuery,
       },
     });
-
-    return res.pipe(map((transfers) => transfers.transfers));
   }
 }
 

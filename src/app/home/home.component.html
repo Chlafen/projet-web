@@ -24,7 +24,7 @@
   <div class="side-home">
     <app-top-transfers
       *ngIf="(topTransfersStatus$ | async) == 'Success'"
-      [transfers]="(topTransfersList$ | async)!"
+      [transfers]="(topTransfersList$ | async)!.slice(0, 4)"
       class="w-100"
     ></app-top-transfers>
 
