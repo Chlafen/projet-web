@@ -20,7 +20,11 @@
       <app-loading class="w-100"></app-loading>
     </app-wrapper>
   </div>
-  <app-feed class="w-100"></app-feed>
+  <app-feed
+    class="w-100"
+    [matches]="(matchesList$ | async)!"
+    [status]="(matchesStatus$ | async)!"
+  ></app-feed>
   <div class="side-home">
     <app-top-transfers
       *ngIf="(topTransfersStatus$ | async) == 'Success'"

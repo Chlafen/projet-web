@@ -1,8 +1,15 @@
 <div class="home-feed">
   <app-home-filter class="w-100"></app-home-filter>
-  <app-feed-league-section
-    class="w-100"
-    *ngFor="let league of leagueSections"
-    [league]="league"
-  ></app-feed-league-section>
+  <ng-container *ngIf="leaguesStatus == 'Success'">
+    <app-feed-league-section
+      class="w-100"
+      *ngFor="let league of leagueMatches.leagues"
+      [league]="league"
+    ></app-feed-league-section>
+  </ng-container>
+  <ng-container *ngIf="leaguesStatus == 'Loading'">
+    <app-wrapper class="w-100" *ngIf="!leagueMatches.leagues?.length">
+      <app-loading class="w-100"></app-loading>
+    </app-wrapper>
+  </ng-container>
 </div>

@@ -5,6 +5,7 @@ import {
   topLeaguesActions,
   allLeaguesActions,
   transfersActions,
+  matchesActions,
 } from '../state/actions';
 import {
   getTopLeagues,
@@ -15,6 +16,8 @@ import {
   getWorldNewsStatus,
   getAllLeaguesFiltered,
   getAllLeaguesStatus,
+  getMatches,
+  getMatchesStatus,
 } from 'src/app/state/selectors';
 @Component({
   selector: 'app-home',
@@ -36,6 +39,9 @@ export class HomeComponent {
   topTransfersList$ = this.store.select(getTransfers);
   topTransfersStatus$ = this.store.select(getTransfersStatus);
 
+  matchesList$ = this.store.select(getMatches);
+  matchesStatus$ = this.store.select(getMatchesStatus);
+
   ngOnInit(): void {
     this.store.dispatch(newsActions.loadNews());
     this.store.dispatch(topLeaguesActions.loadTopLeagues());
@@ -44,6 +50,11 @@ export class HomeComponent {
       transfersActions.loadTransfers({
         showTop: true,
       })
-    ); // Provide an empty object as an argument
+    );
+    this.store.dispatch(
+      matchesActions.loadMatches({
+        date: new Date().toISOString().slice(0, 10).replace(/-/g, ''),
+      })
+    );
   }
 }

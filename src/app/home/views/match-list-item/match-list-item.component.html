@@ -1,17 +1,51 @@
 <div class="match-list-item">
   <div class="wrap-item">
     <span class="right">
-      {{ match.homeTeam }}
+      <span
+        class="status"
+        *ngIf="getMatchStatus().length"
+        [ngStyle]="{
+          backgroundColor: this.match.status?.liveTime?.short
+            ? '$seconday-color'
+            : '#444',
+          color: this.match.status?.liveTime?.short ? 'white' : '#bbb'
+        }"
+      >
+        {{ getMatchStatus() }}
+      </span>
+      <span></span>
+      <span>
+        {{ match.home?.name }}
+      </span>
     </span>
-    <img class="team-logo" [src]="match.homeLogo" alt="team logo" />
+    <img
+      class="team-logo"
+      [src]="match.home?.id! | teamImage"
+      alt="team logo"
+    />
 
-    <b class="match-score">
-      {{ scoreOrTime }}
+    <b
+      class="match-score"
+      [ngStyle]="{ color: this.match.status!.finished ? 'white' : '#888' }"
+    >
+      <span class="red-cards">
+        <div class="red-card" *ngIf="match.status?.homeRedCards"></div>
+        <div *ngIf="!match.status?.homeRedCards"></div>
+        <div class="red-card" *ngIf="match.status?.awayRedCards"></div>
+        <div *ngIf="!match.status?.awayRedCards"></div>
+      </span>
+      <span>{{ scoreOrTime }}</span>
     </b>
-    <img class="team-logo" [src]="match.awayLogo" alt="team logo" />
+    <img
+      class="team-logo"
+      [src]="match.away?.id! | teamImage"
+      alt="team logo"
+    />
 
     <span class="left">
-      {{ match.awayTeam }}
+      <span>
+        {{ match.away?.name }}
+      </span>
     </span>
   </div>
 </div>
