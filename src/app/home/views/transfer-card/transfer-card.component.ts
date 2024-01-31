@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Transfer } from 'src/app/common/types/transfers';
 
 @Component({
   selector: 'app-transfer-card',
@@ -6,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./transfer-card.component.sass'],
 })
 export class TransferCardComponent {
-  @Input() transferInfo!: any;
+  @Input() transferInfo!: Transfer;
 }
