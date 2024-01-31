@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   FeeText,
   League,
@@ -13,6 +14,12 @@ import {
   styleUrls: ['./leagues.component.sass'],
 })
 export class LeaguesComponent {
+  constructor(private route: ActivatedRoute) {
+    this.leagueId = this.route.snapshot.params['id'];
+  }
+
+  leagueId!: number;
+
   onSeasonChange(season: any) {
     this.selectedSeason = season.target.value;
     console.log(this.selectedSeason);

@@ -23,4 +23,5 @@ export interface GetTransfersQuery {
   page?: number;
   showTop?: boolean;
   orderBy?: 'fee' | 'value';
+  leagueIds?: number;
 }

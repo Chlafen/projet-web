@@ -1,5 +1,11 @@
-import { Component } from '@angular/core';
+import { getTransfersStatus } from './../../../../state/selectors/transfers.selector';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { debounceTime } from 'rxjs';
 import { Transfer, TransfersFilter } from 'src/app/common/types/transfers';
+import { transfersActions } from 'src/app/state/actions';
+import { getTransfers, getTransfersCount } from 'src/app/state/selectors';
 
 @Component({
   selector: 'app-transfers',
@@ -7,43 +13,46 @@ import { Transfer, TransfersFilter } from 'src/app/common/types/transfers';
   styleUrls: ['./transfers.component.sass'],
 })
 export class TransfersComponent {
-  transfers: Transfer[] = [];
+  constructor(private store: Store, private router: Router) {
+    const url = this.router.url.split('/');
+    this.leagueId = +url[2];
+  }
 
-  filter1: TransfersFilter = {
-    selected: 'All',
-    choices: [
-      {
-        label: 'Latest Transfers',
-        value: 'latest',
-      },
-      {
-        label: 'Fee',
-        value: 'fee',
-      },
-      {
-        label: 'Market Value',
-        value: 'marketValue',
-      },
-    ],
-  };
+  leagueId!: number;
 
-  filter2: TransfersFilter = {
-    selected: 'All',
-    choices: [
-      {
-        label: 'All Transfers',
-        value: 'all',
-      },
-      {
-        label: 'Latest Transfers',
-        value: 'latest',
-      },
-    ],
-  };
+  transfersList$ = this.store.select(getTransfers).pipe(debounceTime(500));
+  transfersStatus$ = this.store.select(getTransfersStatus);
+  transfersCount$ = this.store.select(getTransfersCount);
 
-  onFilter1Change(event: any) {}
+  page = 1;
 
-  onFilter2Change(event: any) {}
+  ngOnInit(): void {
+    this.store.dispatch(
+      transfersActions.loadTransfers({
+        page: this.page,
+        leagueIds: this.leagueId,
+      })
+    );
+  }
 
-  onShowMore() {}
+  onNextPage() {
+    this.page++;
+    this.triggerChange();
+  }
+
+  onPreviousPage() {
+    if (this.page > 1) {
+      this.page--;
+      this.triggerChange();
+    }
+  }
+
+  triggerChange() {
+    this.store.dispatch(
+      transfersActions.loadTransfers({
+        page: this.page,
+        leagueIds: this.leagueId,
+      })
+    );
+  }
 }

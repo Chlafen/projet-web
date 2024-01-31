@@ -1,11 +1,35 @@
 <div class="transfers-page w-100 m-auto">
-  <app-wrapper class="w-100">
+  <app-wrapper
+    class="w-100 center"
+    *ngIf="(transfersStatus$ | async) == 'Loading'"
+  >
+    <app-loading class="w-100 center"></app-loading>
+  </app-wrapper>
+  <app-wrapper class="w-100" *ngIf="(transfersStatus$ | async) == 'Success'">
     <app-transfers-table
       class="w-100"
-      [transfers]="transfers!"
+      [transfers]="(transfersList$ | async)!"
     ></app-transfers-table>
-    <div class="show-more">
-      <button (click)="onShowMore()">Show more</button>
+
+    <div class="show-more" *ngIf="(transfersCount$ | async)! > 100">
+      <button
+        (click)="onPreviousPage()"
+        [disabled]="page == 1"
+        [ngClass]="{ disabled: page == 1 }"
+      >
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      </button>
+      <span>
+        {{ page }} /
+        {{ (transfersCount$ | async)! / 100 + 1 | number : "1.0-0" }}</span
+      >
+      <button
+        (click)="onNextPage()"
+        [disabled]="page >= (transfersCount$ | async)! / 100"
+        [ngClass]="{ disabled: page >= (transfersCount$ | async)! / 100 }"
+      >
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </button>
     </div>
   </app-wrapper>
 </div>
