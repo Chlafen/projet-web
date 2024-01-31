@@ -1,9 +1,8 @@
 import { getTransfersStatus } from './../../../../state/selectors/transfers.selector';
-import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { debounceTime } from 'rxjs';
-import { Transfer, TransfersFilter } from 'src/app/common/types/transfers';
 import { transfersActions } from 'src/app/state/actions';
 import { getTransfers, getTransfersCount } from 'src/app/state/selectors';
 
@@ -13,9 +12,8 @@ import { getTransfers, getTransfersCount } from 'src/app/state/selectors';
   styleUrls: ['./transfers.component.sass'],
 })
 export class TransfersComponent {
-  constructor(private store: Store, private router: Router) {
-    const url = this.router.url.split('/');
-    this.leagueId = +url[2];
+  constructor(private store: Store, private route: ActivatedRoute) {
+    this.leagueId = this.route.parent!.snapshot.params['id'];
   }
 
   leagueId!: number;
