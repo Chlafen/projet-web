@@ -20,7 +20,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'leagues',
+    path: 'leagues/:id',
     loadChildren: () =>
       import('./features/leagues/leagues.module').then((m) => m.LeaguesModule),
   },

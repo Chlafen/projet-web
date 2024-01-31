@@ -10,8 +10,6 @@ export class MatchListItemComponent implements OnInit {
   scoreOrTime: string = '';
 
   ngOnInit(): void {
-    console.log(this.match);
-
     if (this.match?.status === 'FINISHED') {
       this.scoreOrTime = `${this.match.homeScore} - ${this.match.awayScore}`;
     } else {

@@ -1,143 +1,43 @@
-import { Component } from '@angular/core';
-import {
-  FeeText,
-  LocalizationKey,
-  LocalizedFeeText,
-  Text,
-  Transfers,
-} from 'src/app/common/types/league';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { debounceTime } from 'rxjs';
 import { TransfersFilter } from 'src/app/common/types/transfers';
+import { transfersActions } from 'src/app/state/actions';
+import {
+  getTransfers,
+  getTransfersCount,
+  getTransfersStatus,
+} from 'src/app/state/selectors';
 
 @Component({
   selector: 'app-transfers',
   templateUrl: './transfers.component.html',
   styleUrls: ['./transfers.component.sass'],
 })
-export class TransfersComponent {
-  transfers: Transfers = {
-    type: 'Transfers',
-    data: [
-      {
-        contractExtension: false,
-        fee: {
-          feeText: FeeText.Fee,
-          localizedFeeText: LocalizedFeeText.TransferFee,
-          value: '€ 2.00m',
-        },
-        fromClub: 'Barca Atletic',
-        fromClubId: 161774,
-        marketValue: '€ 2.00m',
-        name: 'S. Gnabry',
-        onLoan: false,
-        playerId: 30981,
-        position: {
-          key: 'ST',
-          label: 'Midfielder',
-        },
-        toDate: new Date('2023-06-30T00:00:00Z'),
-        toClub: 'FC Bayern München',
-        toClubId: 6628,
-        transferDate: new Date('2018-07-01T00:00:00Z'),
-        transferText: [],
-        transferType: {
-          localizationKey: LocalizationKey.Contract,
-          text: Text.Contract,
-        },
-        fromDate: new Date('2017-07-01T00:00:00Z'),
-      },
-      {
-        contractExtension: false,
-        fee: {
-          feeText: FeeText.Fee,
-          localizedFeeText: LocalizedFeeText.TransferFee,
-          value: '€ 2.00m',
-        },
-        fromClub: 'Barca Atletic',
-        fromClubId: 161774,
-        marketValue: '€ 2.00m',
-        name: 'S. Gnabry',
-        onLoan: false,
-        playerId: 30981,
-        position: {
-          key: 'ST',
-          label: 'Midfielder',
-        },
-        toDate: new Date('2023-06-30T00:00:00Z'),
-        toClub: 'FC Bayern München',
-        toClubId: 6628,
-        transferDate: new Date('2018-07-01T00:00:00Z'),
-        transferText: [],
-        transferType: {
-          localizationKey: LocalizationKey.Contract,
-          text: Text.Contract,
-        },
-        fromDate: new Date('2017-07-01T00:00:00Z'),
-      },
-      {
-        contractExtension: false,
-        fee: {
-          feeText: FeeText.Fee,
-          localizedFeeText: LocalizedFeeText.TransferFee,
-          value: '€ 2.00m',
-        },
-        fromClub: 'Barca Atletic',
-        fromClubId: 161774,
-        marketValue: '€ 2.00m',
-        name: 'S. Gnabry',
-        onLoan: false,
-        playerId: 30981,
-        position: {
-          key: 'ST',
-          label: 'Midfielder',
-        },
-        toDate: new Date('2023-06-30T00:00:00Z'),
-        toClub: 'FC Bayern München',
-        toClubId: 6628,
-        transferDate: new Date('2018-07-01T00:00:00Z'),
-        transferText: [],
-        transferType: {
-          localizationKey: LocalizationKey.Contract,
-          text: Text.Contract,
-        },
-        fromDate: new Date('2017-07-01T00:00:00Z'),
-      },
-      {
-        contractExtension: false,
-        fee: {
-          feeText: FeeText.Fee,
-          localizedFeeText: LocalizedFeeText.TransferFee,
-          value: '€ 2.00m',
-        },
-        fromClub: 'Barca Atletic',
-        fromClubId: 161774,
-        marketValue: '€ 2.00m',
-        name: 'S. Gnabry',
-        onLoan: false,
-        playerId: 30981,
-        position: {
-          key: 'ST',
-          label: 'Midfielder',
-        },
-        toDate: new Date('2023-06-30T00:00:00Z'),
-        toClub: 'FC Bayern München',
-        toClubId: 6628,
-        transferDate: new Date('2018-07-01T00:00:00Z'),
-        transferText: [],
-        transferType: {
-          localizationKey: LocalizationKey.Contract,
-          text: Text.Contract,
-        },
-        fromDate: new Date('2017-07-01T00:00:00Z'),
-      },
-    ],
-  };
+export class TransfersComponent implements OnInit {
+  constructor(private store: Store) {}
+  transfersList$ = this.store.select(getTransfers).pipe(debounceTime(500));
+  transfersStatus$ = this.store.select(getTransfersStatus);
+  transfersCount$ = this.store.select(getTransfersCount);
 
-  filter1: TransfersFilter = {
-    selected: 'All',
+  page = 1;
+
+  ngOnInit(): void {
+    this.store.dispatch(
+      transfersActions.loadTransfers({
+        page: this.page,
+        showTop: this.showTop.selected == 'top',
+        orderBy: this.orderBy.selected as any,
+      })
+    );
+  }
+
+  orderBy: TransfersFilter = {
+    selected: '',
     choices: [
       {
         label: 'Latest Transfers',
-        value: 'latest',
+        value: '',
       },
       {
         label: 'Fee',
@@ -145,39 +45,58 @@ export class TransfersComponent {
       },
       {
         label: 'Market Value',
-        value: 'marketValue',
+        value: 'value',
       },
     ],
   };
 
-  filter2: TransfersFilter = {
-    selected: 'All',
+  showTop: TransfersFilter = {
+    selected: '',
     choices: [
       {
         label: 'All Transfers',
-        value: 'all',
+        value: '',
       },
       {
-        label: 'Latest Transfers',
-        value: 'latest',
+        label: 'Top Transfers',
+        value: 'top',
       },
     ],
   };
 
-  onFilter1Change(event: any) {
-    console.log('Filter 1', event);
-
-    this.filter1.selected = event.toString();
+  onOrderByChange(event: any) {
+    console.log('orderByFilter', event);
+    this.orderBy.selected = event.toString();
+    this.page = 1;
+    this.triggerChange();
   }
 
-  onFilter2Change(event: any) {
-    console.log('Filter 2', event);
-    this.filter2.selected = event.toString();
+  onShowTopChange(event: any) {
+    console.log('showTopFilter', event);
+    this.showTop.selected = event.toString();
+    this.page = 1;
+    this.triggerChange();
   }
 
-  onShowMore() {
-    console.log('Show more', this.transfers.data?.length);
+  onNextPage() {
+    this.page++;
+    this.triggerChange();
+  }
 
-    this.transfers.data = [...this.transfers.data!, ...this.transfers.data!];
+  onPreviousPage() {
+    if (this.page > 1) {
+      this.page--;
+      this.triggerChange();
+    }
+  }
+
+  triggerChange() {
+    this.store.dispatch(
+      transfersActions.loadTransfers({
+        page: this.page,
+        showTop: this.showTop.selected == 'top',
+        orderBy: this.orderBy.selected as any,
+      })
+    );
   }
 }

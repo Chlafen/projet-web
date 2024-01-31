@@ -1,19 +1,33 @@
 <div class="transfer-card w-100">
   <div class="details">
-    <img [src]="transferInfo.img" alt="player image" class="player-img" />
+    <img
+      appPlayerFallbackImage
+      [src]="transferInfo.playerId | playerImage"
+      alt="player image"
+      class="player-img"
+    />
     <div class="coll">
       <div class="roww">
         <p class="name">{{ transferInfo.name }}</p>
       </div>
       <div class="roww">
-        <img class="from" [src]="transferInfo.fromImg" alt="fromImg" />
+        <img
+          class="from"
+          [src]="transferInfo.fromClubId | teamImage"
+          alt="fromImg"
+        />
         <!-- icon arrow right solid circle-->
         <app-arrow-right-solid class="center row"></app-arrow-right-solid>
-        <img [src]="transferInfo.toImg" alt="toImg" class="to" />
+        <img [src]="transferInfo.toClubId | teamImage" alt="toImg" class="to" />
       </div>
     </div>
   </div>
   <div class="price">
-    <p class="price__text">{{ transferInfo.price }}</p>
+    <span class="price__text" *ngIf="transferInfo.fee?.feeText == 'fee'">
+      {{ transferInfo.fee?.value }}
+    </span>
+    <span class="price__text" *ngIf="transferInfo.fee?.feeText != 'fee'">
+      {{ transferInfo.fee?.feeText || "On Loan" | titlecase }}
+    </span>
   </div>
 </div>
