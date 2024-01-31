@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { debounceTime } from 'rxjs';
 import { TransfersFilter } from 'src/app/common/types/transfers';
 import { transfersActions } from 'src/app/state/actions';
 import { getTransfers, getTransfersCount } from 'src/app/state/selectors';
@@ -11,7 +12,7 @@ import { getTransfers, getTransfersCount } from 'src/app/state/selectors';
 })
 export class TransfersComponent implements OnInit {
   constructor(private store: Store) {}
-  transfersList$ = this.store.select(getTransfers);
+  transfersList$ = this.store.select(getTransfers).pipe(debounceTime(500));
   transfersCount$ = this.store.select(getTransfersCount);
   page = 1;
 
