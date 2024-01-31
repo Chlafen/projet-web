@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, map } from 'rxjs';
 import {
   FeeText,
   League,
@@ -15,10 +16,12 @@ import {
 })
 export class LeaguesComponent {
   constructor(private route: ActivatedRoute) {
-    this.leagueId = this.route.snapshot.params['id'];
+    this.leagueId$ = this.route.params.pipe(
+      map((params) => Number(params['id']))
+    );
   }
 
-  leagueId!: number;
+  leagueId$: Observable<number> = new Observable<number>();
 
   onSeasonChange(season: any) {
     this.selectedSeason = season.target.value;
