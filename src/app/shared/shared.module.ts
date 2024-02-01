@@ -24,6 +24,7 @@ import { TeamImagePipe } from './pipes/team-image/team-image.pipe';
 import { CountryFallbackImageDirective } from './directives/country-fallback-image/country-fallback-image.directive';
 import { PlayerFallbackImageDirective } from './directives/player-fallback-image/player-fallback-image.directive';
 import { TeamFallbackImageDirective } from './directives/team-fallback-image/team-fallback-image.directive';
+import { NewsListGridDisplayComponent } from './views/news-list-grid-display/news-list-grid-display.component';
 import { CcodeToCountryPipe } from './pipes/ccode-to-country/ccode-to-country.pipe';
 import { FeedBytimeMatchesComponent } from './views/feed-bytime-matches/feed-bytime-matches.component';
 import { MatchListItemComponent } from './views/match-list-item/match-list-item.component';
@@ -37,6 +38,7 @@ import { MatchListItemComponent } from './views/match-list-item/match-list-item.
     SlickCarouselModule,
   ],
   declarations: [
+    NewsListGridDisplayComponent,
     WrapperComponent,
     SearchbarComponent,
     TransferIconComponent,
@@ -91,7 +93,8 @@ import { MatchListItemComponent } from './views/match-list-item/match-list-item.
     ArrowSolidLeftComponent,
     SlickCarouselModule,
     TeamFallbackImageDirective,
+    NewsListGridDisplayComponent,
     CcodeToCountryPipe,
   ],
 })
-export class SharedModule {}
+export class SharedModule { }
