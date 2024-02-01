@@ -34,6 +34,7 @@ import { SearchResultCardComponent } from './views/search-result-card/search-res
 import { SearchResultGroupComponent } from './views/search-result-group/search-result-group.component';
 
 import { LeagueUrlPipe } from './pipes/league-url/league-url.pipe';
+import { FallbackSearchDirective } from './directives/fallback-search/fallback-search.directive';
 
 @NgModule({
   imports: [
@@ -72,7 +73,8 @@ import { LeagueUrlPipe } from './pipes/league-url/league-url.pipe';
     MatchListItemComponent,
     SearchResultCardComponent,
     SearchResultGroupComponent,
-    LeagueUrlPipe
+    LeagueUrlPipe,
+    FallbackSearchDirective
   ],
   exports: [
     FormsModule,

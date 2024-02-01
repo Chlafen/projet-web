@@ -1,8 +1,31 @@
-<div class="card" style="width: 18rem;" result>
-<div>
- <app-search-result-group [list]="leagueSearchReslt" [title]="'Leagues'" ></app-search-result-group>
- <app-search-result-group [list]="matchSearchReslt"  [title]="'Matches'"></app-search-result-group>
- <app-search-result-group [list]="teamSearchReslt"  [title]="'Teams'"></app-search-result-group>
-</div>
- 
+<div class="card">
+  <app-search-result-group
+    *ngIf="leagueSearchReslt.length"
+    [list]="leagueSearchReslt"
+    [title]="'Leagues'"
+  ></app-search-result-group>
+  <app-search-result-group
+    *ngIf="matchSearchReslt.length"
+    [list]="matchSearchReslt"
+    [title]="'Matches'"
+  ></app-search-result-group>
+  <app-search-result-group
+    *ngIf="teamSearchReslt.length"
+    [list]="teamSearchReslt"
+    [title]="'Teams'"
+  ></app-search-result-group>
+
+  <div class="status">
+    <app-loading *ngIf="isLoading"></app-loading>
+    <p
+      *ngIf="
+        !isLoading &&
+        !leagueSearchReslt.length &&
+        !matchSearchReslt.length &&
+        !teamSearchReslt.length
+      "
+    >
+      No results found
+    </p>
   </div>
+</div>

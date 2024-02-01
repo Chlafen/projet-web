@@ -1,17 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { SearchResults } from 'src/app/common/types/search';
 import { IListItem } from '../search-result-group/search-result-group.component';
 
 @Component({
   selector: 'app-search-result-card',
   templateUrl: './search-result-card.component.html',
-  styleUrls: ['./search-result-card.component.sass']
+  styleUrls: ['./search-result-card.component.sass'],
 })
 export class SearchResultCardComponent {
-@Input() leagueSearchReslt!:IListItem[];
-@Input() matchSearchReslt!:IListItem[];
-@Input() teamSearchReslt!:IListItem[];
-@Input() isLoading!:boolean;
-
-
+  @Input() leagueSearchReslt!: IListItem[];
+  @Input() matchSearchReslt!: IListItem[];
+  @Input() teamSearchReslt!: IListItem[];
+  @Input() isLoading!: boolean;
 }
