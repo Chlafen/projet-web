@@ -1,0 +1,19 @@
+<div class="search-group">
+  <h5>{{ title }}</h5>
+  <a
+    [routerLink]="item.url"
+    [routerLinkActive]="['active']"
+    *ngFor="let item of list"
+    class="items"
+  >
+    <img [src]="item.leftImg" appFallbackSearch [type]="item.type" />
+    <h6>{{ item.name }}</h6>
+    <img
+      *ngIf="item.rightImg"
+      [src]="item.rightImg"
+      appFallbackSearch
+      [type]="item.type"
+    />
+    <div class="expand"></div>
+  </a>
+</div>

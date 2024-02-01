@@ -6,6 +6,7 @@ import * as topLeagues from './top-leagues.reducer';
 import * as transfers from './transfers.reducer';
 import * as allLeagues from './all-leagues.reducer';
 import * as matches from './matches.reducer';
+import * as search from './search.reducer'
 
 export interface State {
   news: news.State;
@@ -13,6 +14,7 @@ export interface State {
   leagues: allLeagues.State;
   transfers: transfers.State;
   matches: matches.State;
+  search : search.State
   // router: RouterReducerState;
 }
 
@@ -22,6 +24,7 @@ export const reducers: ActionReducerMap<State> = {
   leagues: allLeagues.reducer,
   transfers: transfers.reducer,
   matches: matches.reducer,
+  search : search.reducer
   // router: routerReducer,
 };
 
@@ -31,5 +34,6 @@ export {
   allLeagues,
   transfers,
   matches,
+  search,
   // RouterReducerState
 };

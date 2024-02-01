@@ -1,4 +1,5 @@
 <div class="searchbar">
   <i class="fas fa-search"></i>
-  <input type="text" placeholder="Search..." />
+  <input [formControl]="searchInput" type="text" placeholder="Search..." />
+  <ng-content *ngIf="searchInput.valueChanges | async"></ng-content>
 </div>

@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { ReactiveFormsModule } from '@angular/forms';
+
 // Components
 import { WrapperComponent } from './views/wrapper/wrapper.component';
 import { SearchbarComponent } from './views/searchbar/searchbar.component';
@@ -28,6 +30,11 @@ import { NewsListGridDisplayComponent } from './views/news-list-grid-display/new
 import { CcodeToCountryPipe } from './pipes/ccode-to-country/ccode-to-country.pipe';
 import { FeedBytimeMatchesComponent } from './views/feed-bytime-matches/feed-bytime-matches.component';
 import { MatchListItemComponent } from './views/match-list-item/match-list-item.component';
+import { SearchResultCardComponent } from './views/search-result-card/search-result-card.component';
+import { SearchResultGroupComponent } from './views/search-result-group/search-result-group.component';
+
+import { LeagueUrlPipe } from './pipes/league-url/league-url.pipe';
+import { FallbackSearchDirective } from './directives/fallback-search/fallback-search.directive';
 
 @NgModule({
   imports: [
@@ -36,6 +43,7 @@ import { MatchListItemComponent } from './views/match-list-item/match-list-item.
     HttpClientModule,
     RouterModule,
     SlickCarouselModule,
+    ReactiveFormsModule
   ],
   declarations: [
     NewsListGridDisplayComponent,
@@ -63,6 +71,10 @@ import { MatchListItemComponent } from './views/match-list-item/match-list-item.
     CcodeToCountryPipe,
     FeedBytimeMatchesComponent,
     MatchListItemComponent,
+    SearchResultCardComponent,
+    SearchResultGroupComponent,
+    LeagueUrlPipe,
+    FallbackSearchDirective
   ],
   exports: [
     FormsModule,
@@ -95,6 +107,7 @@ import { MatchListItemComponent } from './views/match-list-item/match-list-item.
     TeamFallbackImageDirective,
     NewsListGridDisplayComponent,
     CcodeToCountryPipe,
+    SearchResultCardComponent
   ],
 })
 export class SharedModule { }
