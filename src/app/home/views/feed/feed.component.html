@@ -2,26 +2,40 @@
   <app-home-filter
     class="w-100"
     (onFiltersChange)="onFiltersChange($event)"
-    (onDateChange)="onDateChange($event)"
     [filters]="filters"
-    [date]="matchesDate"
+    [date]="(date$ | async) ?? 'Today'"
   ></app-home-filter>
 
-  <ng-container *ngIf="leaguesStatus == 'Success' && byTimeMatches.length == 0">
+  <ng-container
+    *ngIf="
+      !((matchesStatus$ | async) == 'Loading') &&
+      !(byTimeMatches$ | async)?.length &&
+      (leagueMatches$ | async)?.leagues?.length
+    "
+  >
     <app-feed-league-section
       class="w-100"
-      *ngFor="let league of filteredMatches.leagues"
+      *ngFor="let league of (leagueMatches$ | async)!.leagues"
       [league]="league"
     ></app-feed-league-section>
   </ng-container>
-  <ng-container *ngIf="leaguesStatus == 'Success' && byTimeMatches.length > 0">
+  <ng-container
+    *ngIf="
+      !((matchesStatus$ | async) == 'Loading') &&
+      (byTimeMatches$ | async)?.length
+    "
+  >
     <app-feed-bytime-matches
       class="w-100"
-      [matches]="byTimeMatches"
+      [matches]="(byTimeMatches$ | async)!"
     ></app-feed-bytime-matches>
   </ng-container>
-  <ng-container *ngIf="leaguesStatus == 'Loading'">
-    <app-wrapper class="w-100" *ngIf="!leagueMatches.leagues?.length">
+
+  <ng-container *ngIf="(matchesStatus$ | async) == 'Loading'">
+    <app-wrapper
+      class="w-100"
+      *ngIf="!(leagueMatches$ | async)!.leagues?.length"
+    >
       <app-loading class="w-100"></app-loading>
     </app-wrapper>
   </ng-container>

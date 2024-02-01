@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { HomeFilterOption } from 'src/app/common/types/league';
-import { formatDateToApi } from 'src/app/common/utils';
+import { formatDateFromApi } from 'src/app/common/utils';
+import { matchesActions } from 'src/app/state/actions';
 
 @Component({
   selector: 'app-home-filter',
@@ -8,10 +10,10 @@ import { formatDateToApi } from 'src/app/common/utils';
   styleUrls: ['./home-filter.component.sass'],
 })
 export class HomeFilterComponent {
+  constructor(private store: Store) {}
   @Output() onFiltersChange = new EventEmitter<Set<HomeFilterOption>>();
-  @Output() onDateChange = new EventEmitter<string>();
   @Input() filters!: Set<HomeFilterOption>;
-  @Input() date!: string;
+  @Input() date: string = 'Today';
 
   selectedFilters: Set<HomeFilterOption> = new Set(['All']);
 
@@ -52,18 +54,19 @@ export class HomeFilterComponent {
   }
 
   onNextDay() {
-    if (parseInt(this.date) > 20210710) {
-      this.date = formatDateToApi(parseInt(this.date) + 1 + '');
-    }
-    console.log('home filter', this.date);
-    this.onDateChange.emit(this.date);
+    this.selectedFilters.clear();
+    this.selectedFilters.add('All');
+    this.store.dispatch(matchesActions.loadMatchesNextDay(this.date));
   }
 
   onPrevDay() {
-    if (parseInt(this.date) < 20250101) {
-      this.date = formatDateToApi(parseInt(this.date) - 1 + '');
-    }
-    console.log('home filter', this.date);
-    this.onDateChange.emit(this.date);
+    this.selectedFilters.clear();
+    this.selectedFilters.add('All');
+    this.store.dispatch(matchesActions.loadMatchesPrevDay(this.date));
+  }
+
+  formatDate(date: string | null) {
+    if (!date) return 'ez';
+    return formatDateFromApi(date);
   }
 }

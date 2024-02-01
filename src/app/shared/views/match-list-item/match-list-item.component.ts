@@ -11,7 +11,7 @@ export class MatchListItemComponent implements OnInit {
   scoreOrTime: string = '';
 
   ngOnInit(): void {
-    if (this.match?.status?.finished) {
+    if (this.match?.status?.finished || this.match?.status?.liveTime?.short) {
       this.scoreOrTime = `${this.match.home?.score} - ${this.match.away?.score}`;
     } else {
       this.scoreOrTime = this.match.time?.split(' ')[1] ?? '';

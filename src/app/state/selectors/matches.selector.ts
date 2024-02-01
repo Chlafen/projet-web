@@ -8,18 +8,22 @@ export const getMatches = createSelector(
   (state) => state.matches
 );
 
-export const getMatchesByLeague = (leagueId: number) =>
-  createSelector(matchesState, (state) => {
-    const indexOfLeague = state.matches.leagues?.findIndex(
-      (league) => league.id === leagueId
-    );
-    return {
-      league: state.matches.leagues?.[indexOfLeague!],
-      date: state.matches.date,
-    };
-  });
+export const getFilteredMatches = createSelector(
+  matchesState,
+  (state) => state.filteredMatches
+);
+
+export const getByTimeMatches = createSelector(
+  matchesState,
+  (state) => state.byTimeMatches
+);
 
 export const getMatchesStatus = createSelector(
   matchesState,
   (state) => state.status
+);
+
+export const getMatchesDate = createSelector(
+  matchesState,
+  (state) => state.date
 );

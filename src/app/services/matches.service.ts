@@ -14,6 +14,8 @@ export class MatchesService {
     return this.http.get<Matches>(ENDPOINT + 'matches', {
       params: {
         ...getMatchesQuery,
+        timezone: 'Africa/Lagos',
+        ccode3: 'TUN',
       },
     });
   }

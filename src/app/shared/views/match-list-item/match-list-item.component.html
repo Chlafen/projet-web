@@ -7,7 +7,7 @@
         [ngStyle]="{
           backgroundColor: this.match.status?.liveTime?.short
             ? '$seconday-color'
-            : '#444',
+            : '#555',
           color: this.match.status?.liveTime?.short ? 'white' : '#bbb'
         }"
       >
@@ -26,7 +26,12 @@
 
     <b
       class="match-score"
-      [ngStyle]="{ color: this.match.status!.finished ? 'white' : '#888' }"
+      [ngStyle]="{
+        color:
+          this.match.status?.liveTime?.short || this.match.status!.finished
+            ? 'white'
+            : '#888'
+      }"
     >
       <span class="red-cards">
         <div class="red-card" *ngIf="match.status?.homeRedCards"></div>

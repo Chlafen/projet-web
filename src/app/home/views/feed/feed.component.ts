@@ -1,65 +1,33 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { tap } from 'rxjs';
 import { HomeFilterOption } from 'src/app/common/types/league';
 import { League, Match, Matches } from 'src/app/common/types/matches';
+import { matchesActions } from 'src/app/state/actions';
+import {
+  getByTimeMatches,
+  getFilteredMatches,
+  getMatches,
+  getMatchesDate,
+  getMatchesStatus,
+} from 'src/app/state/selectors';
 
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.sass'],
 })
-export class FeedComponent implements OnInit, OnChanges {
-  @Input('matches') leagueMatches!: Matches;
-  @Input('status') leaguesStatus!: string;
-  @Input() matchesDate!: string;
-  @Output() dateChange = new EventEmitter<string>();
+export class FeedComponent {
+  constructor(private store: Store) {}
 
-  filteredMatches!: Matches;
-  byTimeMatches: Match[] = [];
+  leagueMatches$ = this.store.select(getFilteredMatches);
+  byTimeMatches$ = this.store.select(getByTimeMatches);
+  matchesStatus$ = this.store.select(getMatchesStatus);
+  date$ = this.store.select(getMatchesDate);
 
   filters: Set<HomeFilterOption> = new Set(['All', 'Ongoing', 'By Time']);
 
-  ngOnInit() {
-    this.filteredMatches = this.leagueMatches;
-  }
-  ngOnChanges() {
-    this.filteredMatches = this.leagueMatches;
-    this.matchesDate = this.matchesDate;
-  }
-
-  onFiltersChange(newFilters: Set<HomeFilterOption>) {
-    if (newFilters.has('All')) {
-      this.filteredMatches = this.leagueMatches;
-    }
-    if (newFilters.has('Ongoing')) {
-      const newLeagues = this.leagueMatches
-        .leagues!.map((league) => {
-          let matches = league.matches!.filter(
-            (match) => match.status?.started && !match.status?.finished
-          );
-          return { ...league, matches: matches } as League;
-        })
-        .filter((league) => league.matches!.length > 0);
-      this.filteredMatches = { ...this.leagueMatches, leagues: newLeagues };
-    }
-    if (newFilters.has('By Time')) {
-      this.byTimeMatches =
-        this.filteredMatches.leagues
-          ?.map((league) => league.matches ?? [])
-          .flat() ?? [];
-      this.byTimeMatches.sort((a, b) => (a.timeTS ?? 0) - (b.timeTS ?? 0));
-    } else {
-      this.byTimeMatches = [];
-    }
-  }
-
-  onDateChange(newDate: string) {
-    this.dateChange.emit(newDate);
+  onFiltersChange(filters: Set<HomeFilterOption>): void {
+    this.store.dispatch(matchesActions.filterMatches(filters));
   }
 }
