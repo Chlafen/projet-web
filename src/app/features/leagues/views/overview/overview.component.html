@@ -1,21 +1,13 @@
 <div class="overview-page w-100 m-auto">
   <app-wrapper class="w-100">
-    <app-overview-matches
-      class="w-100"
-      [matches]="overviewMatches"
-    ></app-overview-matches>
+    <app-overview-matches class="w-100" [matches]="overviewMatches"></app-overview-matches>
   </app-wrapper>
   <app-wrapper class="w-100">
     <div class="content">
       <h4>News</h4>
-      <div class="news-list">
-        <ng-container *ngFor="let news of newsList; let i = index">
-          <app-news-overview-card
-            class="w-100 h-100"
-            [news]="news"
-          ></app-news-overview-card>
-        </ng-container>
-      </div>
+      <app-news-overview-list class="w-100" [leagueId]="(currentLeagueId$ | async)!"
+        [page]="(currentPage$ | async) ?? 1" [newsList]="(newsList$ | async) ?? []"
+        [isLoading]="(newsStatus$ | async) == 'Loading'"></app-news-overview-list>
     </div>
   </app-wrapper>
 </div>

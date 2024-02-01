@@ -6,6 +6,8 @@ import { news } from '../reducers';
 export const newsState = createFeatureSelector<news.State>('news');
 
 export const getWorldNews = createSelector(newsState, (state) => state.news);
+export const getWorldNewsPage = createSelector(newsState, (state) => state.page);
+export const getWorldNewsError = createSelector(newsState, (state) => state.error);
 
 export const getWorldNewsStatus = createSelector(
   newsState,
