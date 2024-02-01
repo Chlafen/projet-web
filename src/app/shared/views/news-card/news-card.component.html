@@ -1,5 +1,5 @@
 <a class="news-card" target="_blank" rel="noreferrer noopener" draggable="false"
-  [href]="'https://fotmob.com/' + news.page?.url">
+  [href]="news.page?.url?.startsWith('http') ? news.page?.url : 'https://fotmob.com/' + news.page?.url">
   <div class="news-img">
     <img [src]="news.imageUrl" class="Image" alt="" loading="lazy" />
   </div>

@@ -2,8 +2,8 @@
   <app-wrapper class="w-100">
     <div class="content">
       <h3>World News</h3>
-      <app-news-list-grid-display [isLoading]="(newsStatus$ | async) == 'Loading'"
-        [newsList]="(newsList$ | async) ?? []" [currentPage]="(currentPage$ | async) ?? 1"></app-news-list-grid-display>
+      <app-news-section-display [isLoading]="(newsStatus$ | async) == 'Loading'" [newsList]="(newsList$ | async) ?? []"
+        [currentPage]="(currentPage$ | async) ?? 1"></app-news-section-display>
     </div>
   </app-wrapper>
 </div>

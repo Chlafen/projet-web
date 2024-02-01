@@ -1,170 +1,23 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { WorldNews } from 'src/app/common/types/world-news';
+import { newsActions } from 'src/app/state/actions';
+import { getWorldNews, getWorldNewsError, getWorldNewsPage, getWorldNewsStatus } from 'src/app/state/selectors';
 
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.sass']
 })
-export class NewsComponent {
-  windowWidth: number = window.innerWidth;
-  newsList: WorldNews[] = [{
-    imageUrl:'https://images.performgroup.com/di/library/omnisport/de/a2/8e24be8923594ab397d1fed78b820c21.jpg?t=948385629&w=640&h=360',
-    title: 'Manchester United',
-    gmtTime: new Date('2021-10-17T15:00:00.000Z'),
-    sourceStr: 'FotMob',
-    lead: 'Manchester United 0-0 Everton',
-    sourceIconUrl:'https://images.fotmob.com/image_resources/news/the%20analyst.png',
-  page: {
-    url: 'https://www.fotmob.com/news/world/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17',
-  },
-},
-{
-  imageUrl:
-    'https://images.performgroup.com/di/library/omnisport/de/a2/8e24be8923594ab397d1fed78b820c21.jpg?t=948385629&w=640&h=360',
-  title: 'Manchester United',
-  gmtTime: new Date('2021-10-17T15:00:00.000Z'),
-  sourceStr: 'FotMob',
-  lead: 'Manchester United 0-0 Everton',
-  sourceIconUrl:
-    'https://images.fotmob.com/image_resources/news/the%20analyst.png',
-  page: {
-    url: 'https://www.fotmob.com/news/world/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17',
-  },
-},
-{
-  imageUrl:
-    'https://images.performgroup.com/di/library/omnisport/de/a2/8e24be8923594ab397d1fed78b820c21.jpg?t=948385629&w=640&h=360',
-  title: 'Manchester United',
-  gmtTime: new Date('2021-10-17T15:00:00.000Z'),
-  sourceStr: 'FotMob',
-  lead: 'Manchester United 0-0 Everton',
-  sourceIconUrl:
-    'https://images.fotmob.com/image_resources/news/the%20analyst.png',
-  page: {
-    url: 'https://www.fotmob.com/news/world/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17',
-  },
-},
-{
-  imageUrl:
-    'https://images.performgroup.com/di/library/omnisport/de/a2/8e24be8923594ab397d1fed78b820c21.jpg?t=948385629&w=640&h=360',
-  title: 'Manchester United',
-  gmtTime: new Date('2021-10-17T15:00:00.000Z'),
-  sourceStr: 'FotMob',
-  lead: 'Manchester United 0-0 Everton',
-  sourceIconUrl:
-    'https://images.fotmob.com/image_resources/news/the%20analyst.png',
-  page: {
-    url: 'https://www.fotmob.com/news/world/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17',
-  },
-},
-{
-  imageUrl:
-    'https://images.performgroup.com/di/library/omnisport/de/a2/8e24be8923594ab397d1fed78b820c21.jpg?t=948385629&w=640&h=360',
-  title: 'Manchester United',
-  gmtTime: new Date('2021-10-17T15:00:00.000Z'),
-  sourceStr: 'FotMob',
-  lead: 'Manchester United 0-0 Everton',
-  sourceIconUrl:
-    'https://images.fotmob.com/image_resources/news/the%20analyst.png',
-  page: {
-    url: 'https://www.fotmob.com/news/world/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17',
-  },
-},
-{
-  imageUrl:
-    'https://images.performgroup.com/di/library/omnisport/de/a2/8e24be8923594ab397d1fed78b820c21.jpg?t=948385629&w=640&h=360',
-  title: 'Manchester United',
-  gmtTime: new Date('2021-10-17T15:00:00.000Z'),
-  sourceStr: 'FotMob',
-  lead: 'Manchester United 0-0 Everton',
-  sourceIconUrl:
-    'https://images.fotmob.com/image_resources/news/the%20analyst.png',
-  page: {
-    url: 'https://www.fotmob.com/news/world/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17',
-  },
-},
-{
-  imageUrl:
-    'https://images.performgroup.com/di/library/omnisport/de/a2/8e24be8923594ab397d1fed78b820c21.jpg?t=948385629&w=640&h=360',
-  title: 'Manchester United',
-  gmtTime: new Date('2021-10-17T15:00:00.000Z'),
-  sourceStr: 'FotMob',
-  lead: 'Manchester United 0-0 Everton',
-  sourceIconUrl:
-    'https://images.fotmob.com/image_resources/news/the%20analyst.png',
-  page: {
-    url: 'https://www.fotmob.com/news/world/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17',
-  },
-},
-{
-  imageUrl:
-    'https://images.performgroup.com/di/library/omnisport/de/a2/8e24be8923594ab397d1fed78b820c21.jpg?t=948385629&w=640&h=360',
-  title: 'Manchester United',
-  gmtTime: new Date('2021-10-17T15:00:00.000Z'),
-  sourceStr: 'FotMob',
-  lead: 'Manchester United 0-0 Everton',
-  sourceIconUrl:
-    'https://images.fotmob.com/image_resources/news/the%20analyst.png',
-  page: {
-    url: 'https://www.fotmob.com/news/world/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17',
-  },
-},
-{
-  imageUrl:
-    'https://images.performgroup.com/di/library/omnisport/de/a2/8e24be8923594ab397d1fed78b820c21.jpg?t=948385629&w=640&h=360',
-  title: 'Manchester United',
-  gmtTime: new Date('2021-10-17T15:00:00.000Z'),
-  sourceStr: 'FotMob',
-  lead: 'Manchester United 0-0 Everton',
-  sourceIconUrl:
-    'https://images.fotmob.com/image_resources/news/the%20analyst.png',
-  page: {
-    url: 'https://www.fotmob.com/news/world/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17',
-  },
-},
-{
-  imageUrl:
-    'https://images.performgroup.com/di/library/omnisport/de/a2/8e24be8923594ab397d1fed78b820c21.jpg?t=948385629&w=640&h=360',
-  title: 'Manchester United',
-  gmtTime: new Date('2021-10-17T15:00:00.000Z'),
-  sourceStr: 'FotMob',
-  lead: 'Manchester United 0-0 Everton',
-  sourceIconUrl:
-    'https://images.fotmob.com/image_resources/news/the%20analyst.png',
-  page: {
-    url: 'https://www.fotmob.com/news/world/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17',
-  },
-},
-{
-  imageUrl:
-    'https://images.performgroup.com/di/library/omnisport/de/a2/8e24be8923594ab397d1fed78b820c21.jpg?t=948385629&w=640&h=360',
-  title: 'Manchester United',
-  gmtTime: new Date('2021-10-17T15:00:00.000Z'),
-  sourceStr: 'FotMob',
-  lead: 'Manchester United 0-0 Everton',
-  sourceIconUrl:
-    'https://images.fotmob.com/image_resources/news/the%20analyst.png',
-  page: {
-    url: 'https://www.fotmob.com/news/world/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17',
-  },
-},
-{
-  imageUrl:
-    'https://images.performgroup.com/di/library/omnisport/de/a2/8e24be8923594ab397d1fed78b820c21.jpg?t=948385629&w=640&h=360',
-  title: 'Manchester United',
-  gmtTime: new Date('2021-10-17T15:00:00.000Z'),
-  sourceStr: 'FotMob',
-  lead: 'Manchester United 0-0 Everton',
-  sourceIconUrl:
-    'https://images.fotmob.com/image_resources/news/the%20analyst.png',
-  page: {
-    url: 'https://www.fotmob.com/news/world/1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17',
-  },
-},
-  ];
+export class NewsComponent implements OnInit {
+  constructor(private store: Store) { }
 
-  @HostListener('window:resize', ['$event'])
-  onResize() {
-    this.windowWidth = window.innerWidth;
-  }}
+  errorMsg$ = this.store.select(getWorldNewsError);
+  currentPage$ = this.store.select(getWorldNewsPage);
+  newsList$ = this.store.select(getWorldNews);
+  newsStatus$ = this.store.select(getWorldNewsStatus);
+
+  ngOnInit(): void {
+    this.store.dispatch(newsActions.loadNews());
+  }
+}

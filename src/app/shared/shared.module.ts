@@ -24,6 +24,7 @@ import { TeamImagePipe } from './pipes/team-image/team-image.pipe';
 import { CountryFallbackImageDirective } from './directives/country-fallback-image/country-fallback-image.directive';
 import { PlayerFallbackImageDirective } from './directives/player-fallback-image/player-fallback-image.directive';
 import { TeamFallbackImageDirective } from './directives/team-fallback-image/team-fallback-image.directive';
+import { NewsListGridDisplayComponent } from './views/news-list-grid-display/news-list-grid-display.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { TeamFallbackImageDirective } from './directives/team-fallback-image/tea
     SlickCarouselModule,
   ],
   declarations: [
+    NewsListGridDisplayComponent,
     WrapperComponent,
     SearchbarComponent,
     TransferIconComponent,
@@ -82,6 +84,7 @@ import { TeamFallbackImageDirective } from './directives/team-fallback-image/tea
     ArrowSolidLeftComponent,
     SlickCarouselModule,
     TeamFallbackImageDirective,
+    NewsListGridDisplayComponent,
   ],
 })
-export class SharedModule {}
+export class SharedModule { }
