@@ -1,0 +1,11 @@
+<div class="news-list">
+  <ng-container *ngFor="let news of newsList; let i = index">
+    <app-news-overview-card class="w-100 h-100" [news]="news"></app-news-overview-card>
+  </ng-container>
+  <div *ngIf="!isLoading" class="see-more" (click)="seeMore()">
+    See more
+  </div>
+  <app-wrapper *ngIf="isLoading" class="w-100">
+    <app-loading class="w-100"></app-loading>
+  </app-wrapper>
+</div>

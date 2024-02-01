@@ -1,30 +1,18 @@
-<a
-  class="news-card"
-  target="_blank"
-  rel="noreferrer noopener"
-  draggable="false"
-  [href]="'https://fotmob.com/' + news.page?.url"
->
+<a class="news-card" target="_blank" rel="noreferrer noopener" draggable="false"
+  [href]="news.page?.url?.startsWith('http') ? news.page?.url : 'https://fotmob.com/' + news.page?.url">
   <div class="news-img">
     <img [src]="news.imageUrl" class="Image" alt="" loading="lazy" />
   </div>
   <div class="news-content">
     <h3 class="title">
-      {{ news.title | slice : 0 : 85
-      }}<span *ngIf="(news.title?.length ?? 0) > 85">...</span>
+      {{ news.title | slice : 0 : 85 }}
+      <span *ngIf="(news.title?.length ?? 1) > 85">...</span>
     </h3>
   </div>
   <div class="spacer"></div>
   <span class="source">
     <div class="source-img">
-      <img
-        [src]="news.sourceIconUrl"
-        class="Image"
-        [alt]="news.sourceStr"
-        width="18"
-        height="18"
-        loading="lazy"
-      />
+      <img [src]="news.sourceIconUrl" class="Image" [alt]="news.sourceStr" width="18" height="18" loading="lazy" />
     </div>
     <span class="source-name">{{ news.sourceStr }}</span>
     <span class="time">{{ news.gmtTime | date }} </span>

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { League } from 'src/app/common/types/matches';
 
 @Component({
   selector: 'app-feed-league-section',
@@ -6,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./feed-league-section.component.sass'],
 })
 export class FeedLeagueSectionComponent {
-  @Input() league!: any;
+  @Input() league!: League;
 }

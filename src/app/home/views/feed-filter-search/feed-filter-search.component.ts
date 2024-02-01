@@ -14,7 +14,7 @@ export class FeedFilterSearchComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.inputSubscription = this.searchField.valueChanges.pipe(
-      debounceTime(1500),
+      debounceTime(500),
       tap((value) => {
         this.searchText.emit(value)
       })

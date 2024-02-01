@@ -1,16 +1,15 @@
 <nav class="header">
   <div class="wrapper">
-    <a [routerLink]="['/']">FOTMOB</a>
-    <app-searchbar></app-searchbar>
-    <ul>
+    <div class="left">
+      <a [routerLink]="['/']">FOTMOB</a>
+      <app-searchbar class="search-bar"></app-searchbar>
+    </div>
+    <ul class="right">
       <li>
         <a [routerLink]="['/news']">News</a>
       </li>
       <li>
         <a [routerLink]="['/transfers']">Transfers</a>
-      </li>
-      <li>
-        <a [routerLink]="['/leagues']">Leagues</a>
       </li>
     </ul>
   </div>

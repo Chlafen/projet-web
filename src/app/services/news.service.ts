@@ -10,7 +10,28 @@ import { ENDPOINT } from '../app.config';
 export class NewsService {
   http = inject(HttpClient);
 
-  getNews(): Observable<WorldNews[]> {
-    return this.http.get<WorldNews[]>(ENDPOINT + 'worldnews');
+  getNews({ page }: GetNewsOptions): Observable<WorldNews[]> {
+    return this.http.get<WorldNews[]>(ENDPOINT + 'worldnews', {
+      params: {
+        page: page ?? 1
+      }
+    });
   }
+
+  getNewsByLeague({ leagueId, page }: GetNewsByLeagueOptions): Observable<WorldNews[]> {
+    return this.http.get<WorldNews[]>(`${ENDPOINT}worldnews/league/${leagueId}`, {
+      params: {
+        page: page ?? 1
+      }
+    });
+  }
+}
+
+export interface GetNewsOptions {
+  page?: number;
+}
+
+export interface GetNewsByLeagueOptions {
+  leagueId: number;
+  page?: number;
 }

@@ -1,10 +1,18 @@
 <app-wrapper [padding]="0">
-  <div class="league-section-title">
-    <img class="league-logo" [src]="league.logo" alt="league logo" />
-    <span *ngIf="league.country !== null"> {{ league.country }} - </span>
+  <a class="league-section-title" [routerLink]="['../leagues', league.id!]">
+    <img
+      class="league-logo"
+      [src]="league.ccode! | countryImage"
+      countryFallbackImage
+      alt="league logo"
+    />
+    <span> {{ league.ccode | ccodeToCountry }}</span>
+    <span *ngIf="league.ccode | ccodeToCountry"> - </span>
     <span>{{ league.name }}</span>
-  </div>
-  <ng-container *ngFor="let match of league.matches">
-    <app-match-list-item class="w-100" [match]="match"> </app-match-list-item>
+  </a>
+  <ng-container *ngIf="league.matches!.length > 0">
+    <ng-container *ngFor="let match of league.matches">
+      <app-match-list-item class="w-100" [match]="match"> </app-match-list-item>
+    </ng-container>
   </ng-container>
 </app-wrapper>

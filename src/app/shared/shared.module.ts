@@ -1,22 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+// Components
 import { WrapperComponent } from './views/wrapper/wrapper.component';
 import { SearchbarComponent } from './views/searchbar/searchbar.component';
 import { TransferIconComponent } from './views/transfer-icon/transfer-icon.component';
 import { ArrowRightSolidComponent } from './views/arrow-right-solid/arrow-right-solid.component';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from './views/loading/loading.component';
-import { LeagueImagePipe } from './views/league-image/league-image.pipe';
-import { CountryImagePipe } from './views/country-image/country-image.pipe';
-import { CountryFallbackImageDirective } from './views/country-fallback-image/country-fallback-image.directive';
 import { TransfersTableComponent } from './views/transfers-table/transfers-table.component';
 import { PlayerTransferDataComponent } from './views/player-transfer-data/player-transfer-data.component';
-import { RouterModule } from '@angular/router';
 import { NewsCardLargeComponent } from './views/news-card-large/news-card-large.component';
 import { NewsCardComponent } from './views/news-card/news-card.component';
 import { ArrowSolidLeftComponent } from './views/arrow-solid-left/arrow-solid-left.component';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
+// Pipes
+import { LeagueImagePipe } from './pipes/league-image/league-image.pipe';
+import { CountryImagePipe } from './pipes/country-image/country-image.pipe';
+import { PlayerImagePipe } from './pipes/player-image/player-image.pipe';
+import { TeamImagePipe } from './pipes/team-image/team-image.pipe';
+// Directives
+import { CountryFallbackImageDirective } from './directives/country-fallback-image/country-fallback-image.directive';
+import { PlayerFallbackImageDirective } from './directives/player-fallback-image/player-fallback-image.directive';
+import { TeamFallbackImageDirective } from './directives/team-fallback-image/team-fallback-image.directive';
+import { NewsListGridDisplayComponent } from './views/news-list-grid-display/news-list-grid-display.component';
+import { CcodeToCountryPipe } from './pipes/ccode-to-country/ccode-to-country.pipe';
+import { FeedBytimeMatchesComponent } from './views/feed-bytime-matches/feed-bytime-matches.component';
+import { MatchListItemComponent } from './views/match-list-item/match-list-item.component';
 
 @NgModule({
   imports: [
@@ -24,10 +35,10 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     FormsModule,
     HttpClientModule,
     RouterModule,
-    RouterModule,
     SlickCarouselModule,
   ],
   declarations: [
+    NewsListGridDisplayComponent,
     WrapperComponent,
     SearchbarComponent,
     TransferIconComponent,
@@ -45,6 +56,13 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     NewsCardComponent,
     NewsCardLargeComponent,
     ArrowSolidLeftComponent,
+    PlayerImagePipe,
+    TeamFallbackImageDirective,
+    PlayerFallbackImageDirective,
+    TeamImagePipe,
+    CcodeToCountryPipe,
+    FeedBytimeMatchesComponent,
+    MatchListItemComponent,
   ],
   exports: [
     FormsModule,
@@ -59,8 +77,14 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     PlayerTransferDataComponent,
     NewsCardComponent,
     NewsCardLargeComponent,
+    FeedBytimeMatchesComponent,
+    MatchListItemComponent,
+
     LeagueImagePipe,
     CountryImagePipe,
+    PlayerImagePipe,
+    TeamImagePipe,
+    PlayerFallbackImageDirective,
     CountryFallbackImageDirective,
     TransfersTableComponent,
     PlayerTransferDataComponent,
@@ -68,6 +92,9 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     NewsCardLargeComponent,
     ArrowSolidLeftComponent,
     SlickCarouselModule,
+    TeamFallbackImageDirective,
+    NewsListGridDisplayComponent,
+    CcodeToCountryPipe,
   ],
 })
-export class SharedModule {}
+export class SharedModule { }

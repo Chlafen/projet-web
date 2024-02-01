@@ -14,12 +14,9 @@ import { FeedFilterCapsuleComponent } from './views/feed-filter-capsule/feed-fil
 import { FeedFilterSearchComponent } from './views/feed-filter-search/feed-filter-search.component';
 import { FeedLeagueSectionComponent } from './views/feed-league-section/feed-league-section.component';
 import { LeaguePerCountryListComponent } from './views/league-per-country-list/league-per-country-list.component';
-import { MatchListItemComponent } from './views/match-list-item/match-list-item.component';
 import { HomeNewsCardComponent } from './views/home-news-card/home-news-card.component';
 import { SharedModule } from '../shared/shared.module';
 import { TransferCardComponent } from './views/transfer-card/transfer-card.component';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -37,7 +34,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FeedFilterCapsuleComponent,
     FeedFilterSearchComponent,
     FeedLeagueSectionComponent,
-    MatchListItemComponent,
     HomeNewsCardComponent,
     TransferCardComponent,
   ],
@@ -49,4 +45,4 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
   ],
 })
-export class HomeModule { }
+export class HomeModule {}

@@ -1,4 +1,8 @@
-<div class="filter-capsule">
+<div
+  class="filter-capsule"
+  (click)="toggle()"
+  [ngClass]="{ selected: selected }"
+>
   <span>
     {{ content }}
   </span>

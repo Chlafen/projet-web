@@ -5,10 +5,14 @@
   border-radius: 50px
   background-color: $primary-color-light
   padding: 0.5rem .8rem
-  font-weight: 200!important
+  font-weight: 500!important
   font-size: 0.8rem
   user-select: none
   min-width: max-content
+  @media (max-width: 538px)
+    font-size: .7rem!important
+    padding: 0.3rem
+
   &:hover
     opacity: 0.75
     cursor: pointer
@@ -16,3 +20,6 @@
     .icon
       color: white
       transition: color 0.2s ease-in-out
+.selected
+  background-color: white
+  color: #111

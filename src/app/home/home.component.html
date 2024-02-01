@@ -1,24 +1,45 @@
 <main class="home">
-  <div class="side-home">
+  <div class="side-home side-left">
     <!-- Top Leagues -->
-    <app-top-leagues [leagues]="(topLeaguesList$ | async)!" *ngIf="(topLeaguesStatus$ | async) == 'Success'"
-      class="w-100"></app-top-leagues>
+    <app-top-leagues
+      [leagues]="(topLeaguesList$ | async)!"
+      *ngIf="(topLeaguesStatus$ | async) == 'Success'"
+      class="w-100"
+    ></app-top-leagues>
     <app-wrapper *ngIf="(topLeaguesStatus$ | async) == 'Loading'" class="w-100">
       <app-loading class="w-100"></app-loading>
     </app-wrapper>
 
     <!-- All Leagues -->
-    <app-all-leagues [countries]="(allLeaguesList$ | async)!" *ngIf="(allLeaguesStatus$ | async) == 'Success'"
-      class="w-100"></app-all-leagues>
+    <app-all-leagues
+      [countries]="(allLeaguesList$ | async)!"
+      *ngIf="(allLeaguesStatus$ | async) == 'Success'"
+      class="w-100"
+    ></app-all-leagues>
     <app-wrapper *ngIf="(allLeaguesStatus$ | async) == 'Loading'" class="w-100">
       <app-loading class="w-100"></app-loading>
     </app-wrapper>
   </div>
-  <app-feed class="w-100"></app-feed>
-  <div class="side-home">
-    <app-top-transfers class="w-100"></app-top-transfers>
-    <app-last-news *ngIf="(newsStatus$ | async) == 'Success'" [lastNews]="(newsList$ | async)!.slice(0, 4)"
-      class="w-100"></app-last-news>
+  <app-feed class="w-100 .main-home"></app-feed>
+  <div class="side-home side-right">
+    <app-top-transfers
+      *ngIf="(topTransfersStatus$ | async) == 'Success'"
+      [transfers]="(topTransfersList$ | async)!.slice(0, 4)"
+      class="w-100"
+    ></app-top-transfers>
+
+    <app-wrapper
+      *ngIf="(topTransfersStatus$ | async) == 'Loading'"
+      class="w-100"
+    >
+      <app-loading class="w-100"></app-loading>
+    </app-wrapper>
+
+    <app-last-news
+      *ngIf="(newsStatus$ | async) == 'Success'"
+      [lastNews]="(newsList$ | async)!.slice(0, 4)"
+      class="w-100"
+    ></app-last-news>
     <app-wrapper *ngIf="(newsStatus$ | async) == 'Loading'" class="w-100">
       <app-loading class="w-100"></app-loading>
     </app-wrapper>

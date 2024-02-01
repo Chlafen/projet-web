@@ -1,4 +1,4 @@
-<div class="league-item">
+<a class="league-item" [routerLink]="['../leagues', league.id!]">
   <img countryFallbackImage class="league-logo" [src]="league.id | leagueImage" alt="league logo" />
   <p class="league-name">{{ league.name }}</p>
-</div>
+</a>

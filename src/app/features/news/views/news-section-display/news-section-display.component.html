@@ -1,0 +1,9 @@
+<ng-container *ngIf="newsList.length == 0">
+  <app-loading class="w-100"> </app-loading>
+</ng-container>
+
+<ng-container *ngIf="newsList.length > 0">
+  <app-news-card-large class="w-100" *ngIf="windowWidth > 985" [news]="newsList[0]"></app-news-card-large>
+  <app-news-list-grid-display [currentPage]="currentPage" [newsList]="windowWidth <= 985 ? newsList : newsList.slice(1)"
+    [isLoading]="isLoading"></app-news-list-grid-display>
+</ng-container>
