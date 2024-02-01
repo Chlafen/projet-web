@@ -49,6 +49,8 @@
     width: 100%
     border-radius: 5px
     text-align: start
+    font-size: .7rem
+
     .filter
       cursor: pointer
       aspect-ratio: 1
@@ -57,18 +59,27 @@
       display: flex
       justify-content: center
       align-items: center
-      font-size: .7rem
       color: white
       background-color: #777
       &:hover
         background-color: #ccc
+
     .filter-selected
       background-color: #ccc
       &:hover
         background-color: #ccc
     .filter-text
-      font-size: .7rem
       font-weight: 700
       color: #777
       &:hover
         color: #777
+    @media (max-width: 538px)
+      justify-content: space-between
+      font-size: 2.5rem!important
+      .filter-capsule
+        text-align: center
+        flex: 1
+        width: 100%
+  .feed-search
+    @media (max-width: 538px)
+      display: none
