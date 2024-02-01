@@ -1,11 +1,18 @@
+import { inject, EnvironmentInjector } from '@angular/core';
 import {
-  inject,
-  EnvironmentInjector,
-} from '@angular/core';
-import { loadNews, loadNewsPage, loadNewsPerLeague, loadNewsPerLeaguePage } from './news.effect';
+  loadNews,
+  loadNewsPage,
+  loadNewsPerLeague,
+  loadNewsPerLeaguePage,
+} from './news.effect';
 import { loadTopLeauges } from './top-leagues.effect';
 import { loadAllLeauges } from './all-leagues.effect';
 import { loadTransfers } from './transfers.effect';
+import {
+  loadMatches,
+  loadMatchesNextDay,
+  loadMatchesPrevDay,
+} from './matches.effect';
 
 export class HttpEffect {
   private environmentInjector = inject(EnvironmentInjector);
@@ -19,4 +26,7 @@ export class HttpEffect {
 
   loadNewsPerLeague$ = loadNewsPerLeague(this.environmentInjector);
   loadNewsPerLeaguePage$ = loadNewsPerLeaguePage(this.environmentInjector);
+  loadMatches$ = loadMatches(this.environmentInjector);
+  loadMatchesNextDay$ = loadMatchesNextDay(this.environmentInjector);
+  loadMatchesPrevDay$ = loadMatchesPrevDay(this.environmentInjector);
 }

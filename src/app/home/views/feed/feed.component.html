@@ -1,8 +1,40 @@
 <div class="home-feed">
-  <app-home-filter class="w-100"></app-home-filter>
-  <app-feed-league-section
+  <app-home-filter
     class="w-100"
-    *ngFor="let league of leagueSections"
-    [league]="league"
-  ></app-feed-league-section>
+    (onFiltersChange)="onFiltersChange($event)"
+    [filters]="filters"
+    [date]="(date$ | async) ?? 'Today'"
+    (onSearchChange)="onSearchChange($event)"
+  ></app-home-filter>
+
+  <ng-container
+    *ngIf="
+      !((matchesStatus$ | async) == 'Loading') &&
+      !(byTimeMatches$ | async)?.length &&
+      (leagueMatches$ | async)?.leagues?.length
+    "
+  >
+    <app-feed-league-section
+      class="w-100"
+      *ngFor="let league of (leagueMatches$ | async)!.leagues"
+      [league]="league"
+    ></app-feed-league-section>
+  </ng-container>
+  <ng-container
+    *ngIf="
+      !((matchesStatus$ | async) == 'Loading') &&
+      (byTimeMatches$ | async)?.length
+    "
+  >
+    <app-feed-bytime-matches
+      class="w-100"
+      [matches]="(byTimeMatches$ | async)!"
+    ></app-feed-bytime-matches>
+  </ng-container>
+
+  <ng-container *ngIf="(matchesStatus$ | async) == 'Loading'">
+    <app-wrapper class="w-100">
+      <app-loading class="w-100"></app-loading>
+    </app-wrapper>
+  </ng-container>
 </div>

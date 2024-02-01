@@ -24,6 +24,9 @@ import { TeamImagePipe } from './pipes/team-image/team-image.pipe';
 import { CountryFallbackImageDirective } from './directives/country-fallback-image/country-fallback-image.directive';
 import { PlayerFallbackImageDirective } from './directives/player-fallback-image/player-fallback-image.directive';
 import { TeamFallbackImageDirective } from './directives/team-fallback-image/team-fallback-image.directive';
+import { CcodeToCountryPipe } from './pipes/ccode-to-country/ccode-to-country.pipe';
+import { FeedBytimeMatchesComponent } from './views/feed-bytime-matches/feed-bytime-matches.component';
+import { MatchListItemComponent } from './views/match-list-item/match-list-item.component';
 
 @NgModule({
   imports: [
@@ -55,6 +58,9 @@ import { TeamFallbackImageDirective } from './directives/team-fallback-image/tea
     TeamFallbackImageDirective,
     PlayerFallbackImageDirective,
     TeamImagePipe,
+    CcodeToCountryPipe,
+    FeedBytimeMatchesComponent,
+    MatchListItemComponent,
   ],
   exports: [
     FormsModule,
@@ -69,6 +75,9 @@ import { TeamFallbackImageDirective } from './directives/team-fallback-image/tea
     PlayerTransferDataComponent,
     NewsCardComponent,
     NewsCardLargeComponent,
+    FeedBytimeMatchesComponent,
+    MatchListItemComponent,
+
     LeagueImagePipe,
     CountryImagePipe,
     PlayerImagePipe,
@@ -82,6 +91,7 @@ import { TeamFallbackImageDirective } from './directives/team-fallback-image/tea
     ArrowSolidLeftComponent,
     SlickCarouselModule,
     TeamFallbackImageDirective,
+    CcodeToCountryPipe,
   ],
 })
 export class SharedModule {}

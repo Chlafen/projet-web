@@ -5,6 +5,7 @@ import {
   topLeaguesActions,
   allLeaguesActions,
   transfersActions,
+  matchesActions,
 } from '../state/actions';
 import {
   getTopLeagues,
@@ -15,7 +16,10 @@ import {
   getWorldNewsStatus,
   getAllLeaguesFiltered,
   getAllLeaguesStatus,
+  getMatches,
+  getMatchesStatus,
 } from 'src/app/state/selectors';
+import { formatDateToApi } from '../common/utils';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -44,6 +48,11 @@ export class HomeComponent {
       transfersActions.loadTransfers({
         showTop: true,
       })
-    ); // Provide an empty object as an argument
+    );
+    this.store.dispatch(
+      matchesActions.loadMatches({
+        date: formatDateToApi('Today'),
+      })
+    );
   }
 }

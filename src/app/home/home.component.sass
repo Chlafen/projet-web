@@ -6,9 +6,14 @@
   margin: 1rem auto
   border-radius: $border-radius
   display: grid
-  grid-template-columns: 1fr 2fr 1fr
-  // gap
+  grid-template-columns: 300px 1fr 300px
   grid-gap: 1rem
+
+  @media (max-width: 1000px)
+    display: flex
+  @media (max-width: 1300px)
+    grid-template-columns: 300px 1fr
+  // gap
   .side-home
     display: flex
     flex-direction: column
@@ -22,3 +27,10 @@
     align-items: start
     justify-content: start
     gap: 1rem
+
+  .side-left
+    @media (max-width: 1000px)
+      display: none
+  .side-right
+    @media (max-width: 1300px)
+      display: none
