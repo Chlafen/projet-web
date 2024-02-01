@@ -48,11 +48,19 @@ export const loadNewsPage = createAction(
   (page: number) => ({ page })
 );
 
+/**
+ * Triggered when an error happens in loading news in general.
+ */
 export const loadNewsError = createAction(
   '[News] Load News Error',
   (error: string) => ({ error })
 );
 
+/**
+ * Triggered when successfully loaded a news page in general.
+ * Adds result to the news array state at the end.
+ * Updates current page state. (+1)
+ */
 export const loadNewsPageSuccess = createAction(
   '[News] Load News Page Success',
   (news: WorldNews[]) => ({ news })
