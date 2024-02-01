@@ -64,19 +64,6 @@ const _reducer = createReducer(
       byTimeMatches: result.byTimeMatches,
     };
   }),
-  on(matchesActions.searchMatches, (state, action) => {
-    const { filteredMatches, byTimeMatches } = searchMatches(
-      action.searchText,
-      state.matches,
-      state.filteredMatches,
-      state.byTimeMatches
-    );
-    return {
-      ...state,
-      filteredMatches,
-      byTimeMatches,
-    };
-  }),
   on(matchesActions.loadMatchesPrevDay, (state, action) => {
     return {
       ...state,

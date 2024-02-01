@@ -45,8 +45,3 @@ export const filterMatches = createAction(
     searchQuery,
   })
 );
-
-export const searchMatches = createAction(
-  '[Matches] Search Matches',
-  (searchText: string) => ({ searchText })
-);
