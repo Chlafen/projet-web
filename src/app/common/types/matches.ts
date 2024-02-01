@@ -45,8 +45,14 @@ export interface Status {
   cancelled?: boolean;
   scoreStr?: string;
   reason?: Reason;
+  liveTime?: LiveTime;
+  awayRedCards?: number;
+  homeRedCards?: number;
 }
 
+export interface LiveTime {
+  short?: string;
+}
 export interface Reason {
   short?: Short;
   shortKey?: ShortKey;
@@ -55,25 +61,25 @@ export interface Reason {
 }
 
 export enum Long {
-  Cancelled = "Cancelled",
-  FullTime = "Full-Time",
-  Postponed = "Postponed",
+  Cancelled = 'Cancelled',
+  FullTime = 'Full-Time',
+  Postponed = 'Postponed',
 }
 
 export enum LongKey {
-  Cancelled = "cancelled",
-  Finished = "finished",
-  Postponed = "postponed",
+  Cancelled = 'cancelled',
+  Finished = 'finished',
+  Postponed = 'postponed',
 }
 
 export enum Short {
-  Can = "Can",
-  Ft = "FT",
-  Pp = "PP",
+  Can = 'Can',
+  Ft = 'FT',
+  Pp = 'PP',
 }
 
 export enum ShortKey {
-  CancelledShort = "cancelled_short",
-  FulltimeShort = "fulltime_short",
-  PostponedShort = "postponed_short",
+  CancelledShort = 'cancelled_short',
+  FulltimeShort = 'fulltime_short',
+  PostponedShort = 'postponed_short',
 }

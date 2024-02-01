@@ -11,6 +11,7 @@ export interface League {
   matches?: Matches;
   playoff?: null;
 }
+export type HomeFilterOption = 'All' | 'Ongoing' | 'By Time';
 
 export interface Details {
   id?: number;

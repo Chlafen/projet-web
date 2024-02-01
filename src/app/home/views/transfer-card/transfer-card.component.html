@@ -14,11 +14,12 @@
         <img
           class="from"
           [src]="transferInfo.fromClubId | teamImage"
+          appTeamFallbackImageDirective
           alt="fromImg"
         />
         <!-- icon arrow right solid circle-->
         <app-arrow-right-solid class="center row"></app-arrow-right-solid>
-        <img [src]="transferInfo.toClubId | teamImage" alt="toImg" class="to" />
+        <img [src]="transferInfo.toClubId | teamImage" alt="toImg" class="to" appTeamFallbackImageDirective />
       </div>
     </div>
   </div>

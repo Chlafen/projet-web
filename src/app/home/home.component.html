@@ -1,5 +1,5 @@
 <main class="home">
-  <div class="side-home">
+  <div class="side-home side-left">
     <!-- Top Leagues -->
     <app-top-leagues
       [leagues]="(topLeaguesList$ | async)!"
@@ -20,8 +20,8 @@
       <app-loading class="w-100"></app-loading>
     </app-wrapper>
   </div>
-  <app-feed class="w-100"></app-feed>
-  <div class="side-home">
+  <app-feed class="w-100 .main-home"></app-feed>
+  <div class="side-home side-right">
     <app-top-transfers
       *ngIf="(topTransfersStatus$ | async) == 'Success'"
       [transfers]="(topTransfersList$ | async)!.slice(0, 4)"

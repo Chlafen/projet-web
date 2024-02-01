@@ -1,0 +1,10 @@
+<app-wrapper [padding]="0">
+  <ng-container *ngIf="matches!.length > 0">
+    <ng-container *ngFor="let match of matches">
+      <app-match-list-item class="w-100" [match]="match"> </app-match-list-item>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="!matches!.length">
+    <p class="w-100">No Results</p>
+  </ng-container>
+</app-wrapper>
