@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="left">
       <a [routerLink]="['/']">FOTMOB</a>
-      <app-searchbar class="search-bar"></app-searchbar>
+      <app-searchbar class="search-bar" (onSearch)="onSearchCallBack($event)" ></app-searchbar>
     </div>
     <ul class="right">
       <li>
@@ -13,4 +13,5 @@
       </li>
     </ul>
   </div>
+  <app-search-result-card [leagueSearchReslt]="(leagueSearchReslt$|async)!" [teamSearchReslt]="(teamSearchReslt$|async)!" [matchSearchReslt]="(matchSearchReslt$|async)!" [isLoading]="(searchStatus$|async)=='Loading'" ></app-search-result-card>
 </nav>

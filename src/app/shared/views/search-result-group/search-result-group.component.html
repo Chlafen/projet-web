@@ -1,0 +1,11 @@
+<div>
+    <h5>{{title}}</h5>
+      <div class="list-group list-group-flush"  >
+    <div *ngFor="let item of list">  
+        <a [routerLink]="item.url" routerLinkActive="active" >
+            <div><img src="{{item.img}}"/></div>
+            <div><h6>{{item.name}}</h6></div>
+        </a>
+    </div>
+      </div>
+</div>

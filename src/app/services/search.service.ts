@@ -9,7 +9,7 @@ import { SearchResults } from '../common/types/search';
 export class SearchService {
   http = inject(HttpClient);
   getSearch( {query}:GetSearchQuery):Observable<SearchResults>{
-    return this.http.get<SearchResults>(ENDPOINT+'/search',{
+    return this.http.get<SearchResults>(ENDPOINT+'search',{
       params: {
         term: query ,
       },
