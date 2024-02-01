@@ -40,5 +40,13 @@ export const loadMatchesPrevDaySuccess = createAction(
 
 export const filterMatches = createAction(
   '[Matches] Filter Matches',
-  (filters: Set<HomeFilterOption>) => ({ filters })
+  (filters: Set<HomeFilterOption>, searchQuery: string) => ({
+    filters,
+    searchQuery,
+  })
+);
+
+export const searchMatches = createAction(
+  '[Matches] Search Matches',
+  (searchText: string) => ({ searchText })
 );

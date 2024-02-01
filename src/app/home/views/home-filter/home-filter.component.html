@@ -7,9 +7,7 @@
       <div class="date-picker__date">
         <span class="date-picker__date__day">{{ formatDate(date) }}</span>
       </div>
-      <div class="date-picker__calendar">
-        <i class="far fa-calendar-alt"></i>
-      </div>
+      <div class="date-picker__calendar"></div>
     </div>
     <div class="arrow" (click)="onNextDay()">
       <i class="fas fa-chevron-right"></i>
@@ -24,6 +22,9 @@
       (onToggled)="onFilterToggle($event)"
       [selected]="selectedFilters.has(filter)"
     ></app-feed-filter-capsule>
-    <app-feed-filter-search class="w-100"></app-feed-filter-search>
+    <app-feed-filter-search
+      class="w-100"
+      (searchText)="onSearchText($event)"
+    ></app-feed-filter-search>
   </div>
 </app-wrapper>

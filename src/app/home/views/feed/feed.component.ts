@@ -26,8 +26,20 @@ export class FeedComponent {
   date$ = this.store.select(getMatchesDate);
 
   filters: Set<HomeFilterOption> = new Set(['All', 'Ongoing', 'By Time']);
+  selectedFilters = this.filters;
+  searchQuery = '';
 
   onFiltersChange(filters: Set<HomeFilterOption>): void {
-    this.store.dispatch(matchesActions.filterMatches(filters));
+    this.selectedFilters = filters;
+    this.store.dispatch(
+      matchesActions.filterMatches(this.selectedFilters, this.searchQuery)
+    );
+  }
+
+  onSearchChange(searchText: string): void {
+    this.searchQuery = searchText;
+    this.store.dispatch(
+      matchesActions.filterMatches(this.selectedFilters, this.searchQuery)
+    );
   }
 }

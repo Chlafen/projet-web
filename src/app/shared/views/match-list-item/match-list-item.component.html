@@ -21,6 +21,7 @@
     <img
       class="team-logo"
       [src]="match.home?.id! | teamImage"
+      appTeamFallbackImageDirective
       alt="team logo"
     />
 
@@ -44,6 +45,7 @@
     <img
       class="team-logo"
       [src]="match.away?.id! | teamImage"
+      appTeamFallbackImageDirective
       alt="team logo"
     />
 

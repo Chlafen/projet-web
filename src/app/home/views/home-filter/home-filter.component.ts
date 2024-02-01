@@ -12,6 +12,7 @@ import { matchesActions } from 'src/app/state/actions';
 export class HomeFilterComponent {
   constructor(private store: Store) {}
   @Output() onFiltersChange = new EventEmitter<Set<HomeFilterOption>>();
+  @Output() onSearchChange = new EventEmitter<string>();
   @Input() filters!: Set<HomeFilterOption>;
   @Input() date: string = 'Today';
 
@@ -51,6 +52,10 @@ export class HomeFilterComponent {
     }
 
     this.onFiltersChange.emit(this.selectedFilters);
+  }
+
+  onSearchText(text: string) {
+    this.onSearchChange.emit(text);
   }
 
   onNextDay() {

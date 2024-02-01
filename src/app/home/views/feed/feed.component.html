@@ -4,6 +4,7 @@
     (onFiltersChange)="onFiltersChange($event)"
     [filters]="filters"
     [date]="(date$ | async) ?? 'Today'"
+    (onSearchChange)="onSearchChange($event)"
   ></app-home-filter>
 
   <ng-container
@@ -32,10 +33,7 @@
   </ng-container>
 
   <ng-container *ngIf="(matchesStatus$ | async) == 'Loading'">
-    <app-wrapper
-      class="w-100"
-      *ngIf="!(leagueMatches$ | async)!.leagues?.length"
-    >
+    <app-wrapper class="w-100">
       <app-loading class="w-100"></app-loading>
     </app-wrapper>
   </ng-container>
