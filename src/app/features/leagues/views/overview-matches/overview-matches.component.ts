@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { SlickCarouselComponent } from 'ngx-slick-carousel';
 import { LeagueOverviewMatch } from 'src/app/common/types/league';
 
 @Component({
@@ -6,11 +7,14 @@ import { LeagueOverviewMatch } from 'src/app/common/types/league';
   templateUrl: './overview-matches.component.html',
   styleUrls: ['./overview-matches.component.sass'],
 })
-export class OverviewMatchesComponent {
+export class OverviewMatchesComponent implements OnChanges {
   @Input() matches!: LeagueOverviewMatch[];
+  @Input() gotoIdx!: number;
+  @ViewChild('slickModal') slickModal!: SlickCarouselComponent;
 
   windowWidth: number = window.innerWidth;
   slideConfig = {
+    initialSlide: this.gotoIdx,
     infinite: false,
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -32,14 +36,14 @@ export class OverviewMatchesComponent {
     ],
   };
 
-  slickInit(e: any) {
-    console.log('slick initialized');
-    // jump to today's matches
-    const today = new Date();
-    // get index of today's matches
-    // const todayIndex = this.matches.findIndex((match) => {
-    //   const matchDate = new Date(match.status?.utcTime);
-    //   return matchDate.getDate() === today.getDate() && matchDate.getMonth() === today.getMonth();
-    // });
+  ngOnChanges() {
+    console.log(this.slickModal)
+    console.log(this.gotoIdx)
+    if (this.slickModal) this.slickModal.slickGoTo(5)
+
+  }
+
+  afterChange() {
+    console.log('afterChange');
   }
 }

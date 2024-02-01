@@ -4,3 +4,4 @@ export * from './transfers.selector';
 export * from './all-leagues.selector';
 export * from './matches.selector';
 export * from './search.selector';
+export * from './matches-fixture.selector';
