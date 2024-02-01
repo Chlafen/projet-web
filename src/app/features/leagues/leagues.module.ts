@@ -12,6 +12,7 @@ import { OverviewMatchesComponent } from './views/overview-matches/overview-matc
 import { OverviewMatchCardComponent } from './views/overview-match-card/overview-match-card.component';
 import { NewsOverviewCardComponent } from './views/news-overview-card/news-overview-card.component';
 import { MatchPageCardComponent } from './views/match-page-card/match-page-card.component';
+import { NewsOverviewListComponent } from './views/news-overview-list/news-overview-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MatchPageCardComponent } from './views/match-page-card/match-page-card.
     OverviewMatchCardComponent,
     NewsOverviewCardComponent,
     MatchPageCardComponent,
+    NewsOverviewListComponent,
   ],
   imports: [CommonModule, LeaguesRoutingModule, SharedModule],
 })
-export class LeaguesModule {}
+export class LeaguesModule { }
