@@ -20,6 +20,7 @@ import { TransferCardComponent } from './views/transfer-card/transfer-card.compo
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     HomeComponent,
