@@ -1,6 +1,7 @@
 <div class="overview-page w-100 m-auto">
   <app-wrapper class="w-100">
-    <app-overview-matches class="w-100" [matches]="overviewMatches"></app-overview-matches>
+    <app-overview-matches class="w-100" [gotoIdx]="(overviewMatchesJumpIdx$ | async) ?? 0"
+      [matches]="(overviewMatches$ | async) ?? []"></app-overview-matches>
   </app-wrapper>
   <app-wrapper class="w-100">
     <div class="content">

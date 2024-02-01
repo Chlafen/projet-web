@@ -9,16 +9,19 @@ import { loadTopLeauges } from './top-leagues.effect';
 import { loadAllLeauges } from './all-leagues.effect';
 import { loadTransfers } from './transfers.effect';
 
+import { loadLeagueMatchFixtures } from './matches-fixture.effect';
 import {
   loadMatches,
   loadMatchesNextDay,
   loadMatchesPrevDay,
-  
+
 } from './matches.effect';
 import { loadSearch } from './search.effect';
 
 export class HttpEffect {
   private environmentInjector = inject(EnvironmentInjector);
+
+  loadLeagueMatchFixtures$ = loadLeagueMatchFixtures(this.environmentInjector);
 
   loadNews$ = loadNews(this.environmentInjector);
   loadNewsPage$ = loadNewsPage(this.environmentInjector);
