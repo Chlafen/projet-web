@@ -3,6 +3,8 @@
     <div class="left">
       <a [routerLink]="['/']">FOTMOB</a>
       <app-searchbar class="search-bar" (onSearch)="onSearchCallBack($event)" ></app-searchbar>
+  <app-search-result-card class="searchResult" [leagueSearchReslt]="(leagueSearchReslt$|async)!" [teamSearchReslt]="(teamSearchReslt$|async)!" [matchSearchReslt]="(matchSearchReslt$|async)!" [isLoading]="(searchStatus$|async)=='Loading'" ></app-search-result-card>
+
     </div>
     <ul class="right">
       <li>
@@ -13,5 +15,4 @@
       </li>
     </ul>
   </div>
-  <app-search-result-card [leagueSearchReslt]="(leagueSearchReslt$|async)!" [teamSearchReslt]="(teamSearchReslt$|async)!" [matchSearchReslt]="(matchSearchReslt$|async)!" [isLoading]="(searchStatus$|async)=='Loading'" ></app-search-result-card>
 </nav>

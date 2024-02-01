@@ -1,5 +1,11 @@
 @import "../../styles/variables"
 
+.searchResult
+   position: absolute!important
+   top:20px
+   overflow:scroll
+   max-height:600px
+
 $padding: 1rem 2rem
 .header
   background-color: $primary-color
@@ -20,12 +26,15 @@ $padding: 1rem 2rem
     max-width: $max-width
     width: 100%
     .left
+      position:relative
       display: flex
       justify-content: center
       align-items: center
       gap: 6rem
       @media (max-width: 600px)
         gap: 1rem
+    
+
     .search-bar
       width: 365px
     a
