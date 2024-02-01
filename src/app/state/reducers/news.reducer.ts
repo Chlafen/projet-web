@@ -4,22 +4,33 @@ import { newsActions } from '../actions';
 
 export interface State {
   news: WorldNews[];
+  page: number;
   error: string;
   status: 'Initial' | 'Loading' | 'Success' | 'Error';
 }
 
 export const initialState: State = {
   news: [],
+  page: 1,
   error: '',
   status: 'Initial',
 };
 
 const _reducer = createReducer(
   initialState,
-  on(newsActions.loadNewsSuccess, (state, action) => {
+  on(newsActions.resetNewsList, (state, _) => {
     return {
       ...state,
-      news: action.news,
+      news: [],
+      page: 1,
+      status: 'Initial' as const,
+    }
+  }),
+  on(newsActions.loadNewsPageSuccess, (state, action) => {
+    return {
+      ...state,
+      news: [...state.news, ...action.news],
+      page: state.page + 1,
       status: 'Success' as const,
     };
   }),
@@ -31,6 +42,18 @@ const _reducer = createReducer(
     };
   }),
   on(newsActions.loadNews, (state) => {
+    return {
+      ...state,
+      status: 'Loading' as const,
+    };
+  }),
+  on(newsActions.loadNewsPage, (state) => {
+    return {
+      ...state,
+      status: 'Loading' as const,
+    };
+  }),
+  on(newsActions.loadNewsPerLeaguePage, (state) => {
     return {
       ...state,
       status: 'Loading' as const,
