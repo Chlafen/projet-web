@@ -109,7 +109,11 @@ const filterMatches = (filters: Set<HomeFilterOption>, matches: Matches) => {
     const newLeagues = matches
       .leagues!.map((league) => {
         let matches = league.matches!.filter(
-          (match) => match.status?.started && !match.status?.finished
+          (match) =>
+            match.status?.started &&
+            !match.status?.finished &&
+            !match.status?.cancelled &&
+            !match.status?.reason
         );
         return { ...league, matches: matches } as League;
       })
@@ -137,9 +141,9 @@ const searchMatches = (
   filteredMatches: Matches,
   byTimeMatches: Match[]
 ) => {
-  if (searchText === '') {
+  if (!searchText) {
     return {
-      filteredMatches: matches,
+      filteredMatches: filteredMatches,
       byTimeMatches: byTimeMatches,
     };
   } else {
