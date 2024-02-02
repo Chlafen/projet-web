@@ -6,7 +6,7 @@
           <div class="IconAndName">
             <div class="LeagueIconContainer" width="42">
               <img
-                src="https://images.fotmob.com/image_resources/logo/leaguelogo/dark/47.png"
+                [src]="(leagueId$ | async)! | leagueImage"
                 class="Image"
                 alt=""
                 width="42"

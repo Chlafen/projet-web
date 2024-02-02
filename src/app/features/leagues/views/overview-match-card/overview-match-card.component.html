@@ -1,17 +1,10 @@
 <div class="match-overview-card">
   <div class="opponent">
     <div class="logo">
-      <img
-        [src]="
-          'https://images.fotmob.com/image_resources/logo/teamlogo/' +
-          8650 +
-          '.png'
-        "
-        alt=""
-      />
+      <img [src]="+match.home!.id! | teamImage" alt="" />
     </div>
     <p class="name">
-      {{ match.away?.name }}
+      {{ match.home?.name }}
     </p>
   </div>
   <div class="stats">
@@ -32,14 +25,7 @@
   </div>
   <div class="opponent">
     <div class="logo">
-      <img
-        [src]="
-          'https://images.fotmob.com/image_resources/logo/teamlogo/' +
-          10203 +
-          '.png'
-        "
-        alt=""
-      />
+      <img [src]="+match.away!.id! | teamImage" alt="" />
     </div>
     <p class="name">
       {{ match.away?.name }}
