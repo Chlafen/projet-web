@@ -4,9 +4,8 @@
     <a [routerLink]="['../', 'matches']" class="all-matches"> All Matches</a>
   </div>
   <div class="content">
-    <ngx-slick-carousel *ngIf="matches.length" (afterChange)="afterChange()" class="carousel"
-      #slickModal="slick-carousel" [config]="slideConfig">
-      <div class="slide" *ngFor="let match of matches" ngxSlickItem>
+    <ngx-slick-carousel *ngIf="matches.length" class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+      <div class="slide" *ngFor="let match of matches; trackBy: identify" ngxSlickItem>
         <app-overview-match-card [match]="match"></app-overview-match-card>
       </div>
     </ngx-slick-carousel>
